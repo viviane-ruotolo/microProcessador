@@ -8,6 +8,7 @@ entity top_level is
         result: out unsigned(15 downto 0);
 
     );
+end entity;
 
 architecture a_top_level of top_level is
     component banco_regs is
@@ -20,4 +21,8 @@ architecture a_top_level of top_level is
             reset: in std_logic;
             read_regs_out: out unsigned(15 downto 0)
         );
-    end component; 
+    end component;
+
+    begin
+
+end architecture;
