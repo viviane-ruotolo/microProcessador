@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity banco_regs_tb is
-end;
+end entity;
 
 architecture a_banco_regs_tb of banco_regs_tb is
 
@@ -124,4 +124,3 @@ begin
         end process;
 end architecture;
 
-{

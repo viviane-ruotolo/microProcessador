@@ -21,8 +21,8 @@ architecture a_mux_8x1_tb of mux_8x1_tb is
         );
     end component;
 
-    signal sel_op : unsigned(1 downto 0);
-    signal op0, op1, op2, op3, saida : unsigned (15 downto 0);
+    signal sel_op : unsigned(2 downto 0);
+    signal op0, op1, op2, op3, op4, op5, op6, op7, saida : unsigned (15 downto 0);
 
     begin 
         op0 <= "0000000000000000";
