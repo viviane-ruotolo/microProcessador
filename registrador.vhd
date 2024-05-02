@@ -10,6 +10,7 @@ entity registrador is
         data_in: in unsigned(15 downto 0);
         data_out: out unsigned(15 downto 0);
     );
+end entity;
 
 architecture a_registrador of registrador is
     signal registro: unsigned(15 downto 0);

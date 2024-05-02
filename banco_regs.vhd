@@ -41,9 +41,9 @@ architecture a_banco_regs of banco_regs is
         );
     end component;
     
-    signal result0 = "0000000000000000";
+    signal result0 : unsigned(15 downto 0) := "0000000000000000";
     signal result1, result2, result3,  result4, result5, result6, result7: unsigned(15 downto 0);
-    signal enable0, enable1, enable2, enable3, enable4, enable5, enable6, enable7: std_logic = '0'; 
+    signal enable0, enable1, enable2, enable3, enable4, enable5, enable6, enable7: std_logic := '0'; 
 
 begin
     regs0: registrador port map(clock => clock, reset => reset, write_enable => enable0, data_in => write_data, data_out => result0);
