@@ -59,6 +59,7 @@ component mux_2x1
     );
 end component;
     
+<<<<<<< HEAD
     signal read_regs_out, data_ula1, data_ula2 : unsigned(15 downto 0);
     signal write_acu: unsigned(15 downto 0) := "0000000000000000";
 begin
@@ -74,4 +75,8 @@ begin
     result_tl <= write_acu;
 
 
+=======
+begin
+
+>>>>>>> 755f6a4ec1ff8754812e1b107cfe6f06bbfffa90
 end architecture;
