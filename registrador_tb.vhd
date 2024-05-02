@@ -54,21 +54,24 @@ begin
         
         process 
         begin 
-        data_in <= "0000000000001111";
-        
-        wait for time_period * 2;
-        write_en <= '0';
-        wait for time_period * 2;
-        write_en <= '1';
-        wait for time_period * 2;
-        data_in <= "0000000000010000";
-        wait for time_period * 2;
-        -- reseta aqui 
-        
-        -- write_en = '0' --> data_out = 0
-        -- write_en = '1' --> data_out = F
-        -- data_out = 0x10
-        -- escreve no rising_edge do clock
-        -- reset = '1' --> data_out = 0
+            data_in <= "0000000000001111";
+            
+            -- Bloqueia a escrita no reg
+            wait for time_period * 2;
+            write_en <= '0';
+
+            -- Permite escrita no reg
+            wait for time_period * 2;
+            write_en <= '1';
+            data_in <= "0000000000010000";
+
+            -- Reseta o registrador 
+            wait for time_period * 2;
+            reset <= '1';
+
+            -- Fim do pulso de reset
+            wait for time_period * 2;
+            reset <= '0';
+            wait;
         end process;
 end architecture;

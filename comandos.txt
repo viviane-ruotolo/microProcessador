@@ -1,0 +1,39 @@
+ghdl -a mux_2x1.vhd
+ghdl -e mux_2x1
+ghdl -a mux_2x1_tb.vhd
+ghdl -e mux_2x1_tb
+
+ghdl -a mux_4x1.vhd
+ghdl -e mux_4x1
+ghdl -a mux_4x1_tb.vhd
+ghdl -e mux_4x1_tb
+
+ghdl -a mux_8x1.vhd
+ghdl -e mux_8x1
+ghdl -a mux_8x1_tb.vhd
+ghdl -e mux_8x1_tb
+
+ghdl -a registrador.vhd
+ghdl -e registrador
+ghdl -a registrador_tb.vhd
+ghdl -e registrador_tb
+
+ghdl -a banco_regs.vhd
+ghdl -e banco_regs
+ghdl -a banco_regs_tb.vhd
+ghdl -e banco_regs_tb
+
+ghdl -a ula_16bits.vhd
+ghdl -e ula_16bits
+ghdl -a ula_16bits_tb.vhd
+ghdl -e ula_16bits_tb
+
+ghdl -a top_level.vhd
+ghdl -e top_level
+ghdl -a top_level_tb.vhd
+ghdl -e top_level_tb
+
+-- Para simular o sinal
+
+ghdl -r top_level_tb --wave=top_level_tb.ghw
+gtkwave top_level_tb.ghw

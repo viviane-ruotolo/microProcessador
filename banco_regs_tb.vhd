@@ -78,7 +78,7 @@ begin
             write_r <= "111";
             wait for time_period * 2;
     
-            -- testar não vai escrever com enable - '0'
+            -- testar se não vai escrever com enable - '0'
             write_en <= '0';
             write_r <= "001";
             write_d <= "0000000000001111";
@@ -121,6 +121,7 @@ begin
             wait for time_period * 2;
             read_r <= "111";
             wait for time_period * 2;
+            wait;
         end process;
 end architecture;
 
