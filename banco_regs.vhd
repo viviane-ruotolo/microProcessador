@@ -21,7 +21,7 @@ architecture a_banco_regs of banco_regs is
             reset: in std_logic;
             write_enable: in std_logic;
             data_in: in unsigned(15 downto 0);
-            data_out: out unsigned(15 downto 0);
+            data_out: out unsigned(15 downto 0)
         );
     end component;
 
@@ -76,5 +76,6 @@ begin
     enable7 <= '1' when write_enable = '1' and write_regs = "111" else
                   '0';
     
-    mux_result: mux8x1 port map(sel_op => read_regs_1, op0 => result0, op1 => result1, op2 => result2, op3 => result3,
+    mux_result: mux_8x1 port map(sel_op => read_regs_1, op0 => result0, op1 => result1, op2 => result2, op3 => result3,
                                  op4 => result4, op5 => result5, op6 => result6, op7 => result7, saida => read_regs_out);
+end architecture;

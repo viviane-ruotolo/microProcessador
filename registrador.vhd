@@ -8,7 +8,7 @@ entity registrador is
         reset: in std_logic;
         write_enable: in std_logic;
         data_in: in unsigned(15 downto 0);
-        data_out: out unsigned(15 downto 0);
+        data_out: out unsigned(15 downto 0)
     );
 end entity;
 
