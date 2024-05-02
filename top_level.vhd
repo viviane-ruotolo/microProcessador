@@ -11,9 +11,9 @@ entity top_level is
         write_en_br: in std_logic;
         write_en_acu: in std_logic;
         read_regs: in unsigned(2 downto 0);
-        write_regs: in unsigned (2 downto 0);
+        write_in_regs: in unsigned(2 downto 0);
         selec_op_ula: in unsigned(1 downto 0);
-        write_regs: in unsigned(15 downto 0);
+        write_regs_data: in unsigned(15 downto 0);
         result_tl: out unsigned(15 downto 0)
     );
 end entity;
@@ -59,12 +59,12 @@ component mux_2x1
     );
 end component;
     
-<<<<<<< HEAD
     signal read_regs_out, data_ula1, data_ula2 : unsigned(15 downto 0);
-    signal write_acu: unsigned(15 downto 0) := "0000000000000000";
+    signal write_acu: unsigned(15 downto 0) := "0000000000000000"; -- Erro na resposta final
+
 begin
 
-    banco_r: banco_regs port map (read_regs_1 => read_regs, write_data => write_data, write_regs => write_regs, write_enable => write_en_br, clock => clock, reset => reset, read_regs_out => read_regs_out);
+    banco_r: banco_regs port map (read_regs_1 => read_regs, write_data => write_regs_data, write_regs => write_in_regs, write_enable => write_en_br, clock => clock, reset => reset, read_regs_out => read_regs_out);
  
     mux_regs_cte: mux_2x1 port map (sel_op => sel_regs_cte, op0 => cte, op1 => read_regs_out, saida => data_ula1);
 
@@ -74,9 +74,4 @@ begin
 
     result_tl <= write_acu;
 
-
-=======
-begin
-
->>>>>>> 755f6a4ec1ff8754812e1b107cfe6f06bbfffa90
 end architecture;

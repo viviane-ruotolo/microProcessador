@@ -121,6 +121,7 @@ begin
             wait for time_period * 2;
             read_r <= "111";
             wait for time_period * 2;
+            wait;
         end process;
 end architecture;
 
