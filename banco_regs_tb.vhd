@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity banco_regs_tb is
-end;
+end entity;
 
 architecture a_banco_regs_tb of banco_regs_tb is
 
@@ -17,13 +17,13 @@ architecture a_banco_regs_tb of banco_regs_tb is
             reset: in std_logic;
             read_regs_out: out unsigned(15 downto 0)
         );
-    end entity;
+    end component;
     
-    constant time_period : time := 100ns; -- Periodo do clock
+    constant time_period : time := 100 ns; -- Periodo do clock
     signal finished : std_logic := '0';
     signal clk, reset, write_en : std_logic;
-    write_d, read_regs_out: unsigned(15 downto 0);
-    read_r, write_r: unsigned(2 downto 0);
+    signal write_d, read_regs_out: unsigned(15 downto 0);
+    signal read_r, write_r: unsigned(2 downto 0);
     
 begin 
         uut: banco_regs port map (read_regs_1 => read_r, write_data => write_d, write_regs => write_r, write_enable => write_en, clock => clk, reset => reset, read_regs_out => read_regs_out);
@@ -124,4 +124,3 @@ begin
         end process;
 end architecture;
 
-{

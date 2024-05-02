@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity registrador_tb is
-end;
+end entity;
 
 architecture a_registrador_tb of registrador_tb is
 
@@ -13,14 +13,14 @@ architecture a_registrador_tb of registrador_tb is
             reset: in std_logic;
             write_enable: in std_logic;
             data_in: in unsigned(15 downto 0);
-            data_out: out unsigned(15 downto 0);
+            data_out: out unsigned(15 downto 0)
         );
     end component;
 
-    constant time_period : time := 100ns; -- Periodo do clock
+    constant time_period : time := 100 ns; -- Periodo do clock
     signal finished : std_logic := '0';
     signal clk, reset, write_en : std_logic;
-    data_in, data_out: unsigned(15 downto 0);
+    signal data_in, data_out: unsigned(15 downto 0);
         
 begin 
         uut: registrador port map (clock => clk, reset => reset, write_enable => write_en, data_in => data_in, data_out => data_out);
@@ -72,5 +72,3 @@ begin
         -- reset = '1' --> data_out = 0
         end process;
 end architecture;
-
-{
