@@ -59,16 +59,17 @@ begin
             write_en_acu <= '0';
             reset <= '0';
             sel_regs_cte <= '0';
-            result_tl <= "0000000000000000";
+            reset <= '1';
+            wait for time_period * 2;
 
             -- escreve em algum registrador e na constante
+           reset <= '0';
             wait for time_period * 2;
             write_en_br <= '1';
             write_en_acu <= '0';
             cte <= "0000000000001111";
-            result_tl <= "0000000000000000";
             write_in_regs <= "010";
-            selec_op_ula <= "00"; -- soma
+            --selec_op_ula <= "00"; -- soma
             write_regs_data <= "0000000000000011";
             
             -- lê o registrador
@@ -77,23 +78,24 @@ begin
             read_regs <= "010";
 
             -- testa se registrador ou cte vai pra ula e permite escrita no acumulador
-            wait for time_period * 2;
+            wait for time_period;
             sel_regs_cte <= '1'; -- Registrador
             write_en_acu <= '1';
+            selec_op_ula <= "00"; -- soma
 
             -- Recebe resultado da ula e faz outra operação
-            wait for time_period * 2;
+            wait for time_period;
             write_en_br <= '0';
             write_en_acu <= '0';
             selec_op_ula <= "01"; -- sub
 
             -- testa se registrador ou cte vai pra ula e permite escrita no acumulador
-            wait for time_period * 2;
+            wait for time_period;
             sel_regs_cte <= '0'; -- Registrador
             write_en_acu <= '1';
 
             -- Recebe resultado da ula e finaliza teste
-            wait for time_period * 2;
+            wait for time_period;
             write_en_br <= '0';
             write_en_acu <= '0';
             wait for time_period * 2;

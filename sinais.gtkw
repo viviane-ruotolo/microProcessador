@@ -1,0 +1,43 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Fri May 03 21:19:56 2024
+[*]
+[dumpfile] "E:\Documents\2-Projects\microProcessador\top_level_tb.ghw"
+[dumpfile_mtime] "Fri May 03 19:47:41 2024"
+[dumpfile_size] 5337
+[savefile] "E:\Documents\2-Projects\microProcessador\sinais.gtkw"
+[timestart] 0
+[size] 1920 1017
+[pos] -191 -191
+*-28.087057 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.top_level_tb.
+[treeopen] top.top_level_tb.uut.
+[treeopen] top.top_level_tb.uut.ula.
+[sst_width] 288
+[signals_width] 198
+[sst_expanded] 1
+[sst_vpaned_height] 588
+@28
+top.top_level_tb.clk
+top.top_level_tb.reset
+@22
+#{top.top_level_tb.cte[15:0]} top.top_level_tb.cte[15] top.top_level_tb.cte[14] top.top_level_tb.cte[13] top.top_level_tb.cte[12] top.top_level_tb.cte[11] top.top_level_tb.cte[10] top.top_level_tb.cte[9] top.top_level_tb.cte[8] top.top_level_tb.cte[7] top.top_level_tb.cte[6] top.top_level_tb.cte[5] top.top_level_tb.cte[4] top.top_level_tb.cte[3] top.top_level_tb.cte[2] top.top_level_tb.cte[1] top.top_level_tb.cte[0]
+@28
+top.top_level_tb.sel_regs_cte
+top.top_level_tb.write_en_br
+top.top_level_tb.write_en_acu
+@22
+#{top.top_level_tb.write_regs_data[15:0]} top.top_level_tb.write_regs_data[15] top.top_level_tb.write_regs_data[14] top.top_level_tb.write_regs_data[13] top.top_level_tb.write_regs_data[12] top.top_level_tb.write_regs_data[11] top.top_level_tb.write_regs_data[10] top.top_level_tb.write_regs_data[9] top.top_level_tb.write_regs_data[8] top.top_level_tb.write_regs_data[7] top.top_level_tb.write_regs_data[6] top.top_level_tb.write_regs_data[5] top.top_level_tb.write_regs_data[4] top.top_level_tb.write_regs_data[3] top.top_level_tb.write_regs_data[2] top.top_level_tb.write_regs_data[1] top.top_level_tb.write_regs_data[0]
+@28
+#{top.top_level_tb.selec_op_ula[1:0]} top.top_level_tb.selec_op_ula[1] top.top_level_tb.selec_op_ula[0]
+#{top.top_level_tb.write_in_regs[2:0]} top.top_level_tb.write_in_regs[2] top.top_level_tb.write_in_regs[1] top.top_level_tb.write_in_regs[0]
+#{top.top_level_tb.read_regs[2:0]} top.top_level_tb.read_regs[2] top.top_level_tb.read_regs[1] top.top_level_tb.read_regs[0]
+@22
+#{top.top_level_tb.result_tl[15:0]} top.top_level_tb.result_tl[15] top.top_level_tb.result_tl[14] top.top_level_tb.result_tl[13] top.top_level_tb.result_tl[12] top.top_level_tb.result_tl[11] top.top_level_tb.result_tl[10] top.top_level_tb.result_tl[9] top.top_level_tb.result_tl[8] top.top_level_tb.result_tl[7] top.top_level_tb.result_tl[6] top.top_level_tb.result_tl[5] top.top_level_tb.result_tl[4] top.top_level_tb.result_tl[3] top.top_level_tb.result_tl[2] top.top_level_tb.result_tl[1] top.top_level_tb.result_tl[0]
+#{top.top_level_tb.uut.write_acu[15:0]} top.top_level_tb.uut.write_acu[15] top.top_level_tb.uut.write_acu[14] top.top_level_tb.uut.write_acu[13] top.top_level_tb.uut.write_acu[12] top.top_level_tb.uut.write_acu[11] top.top_level_tb.uut.write_acu[10] top.top_level_tb.uut.write_acu[9] top.top_level_tb.uut.write_acu[8] top.top_level_tb.uut.write_acu[7] top.top_level_tb.uut.write_acu[6] top.top_level_tb.uut.write_acu[5] top.top_level_tb.uut.write_acu[4] top.top_level_tb.uut.write_acu[3] top.top_level_tb.uut.write_acu[2] top.top_level_tb.uut.write_acu[1] top.top_level_tb.uut.write_acu[0]
+#{top.top_level_tb.uut.read_regs_out[15:0]} top.top_level_tb.uut.read_regs_out[15] top.top_level_tb.uut.read_regs_out[14] top.top_level_tb.uut.read_regs_out[13] top.top_level_tb.uut.read_regs_out[12] top.top_level_tb.uut.read_regs_out[11] top.top_level_tb.uut.read_regs_out[10] top.top_level_tb.uut.read_regs_out[9] top.top_level_tb.uut.read_regs_out[8] top.top_level_tb.uut.read_regs_out[7] top.top_level_tb.uut.read_regs_out[6] top.top_level_tb.uut.read_regs_out[5] top.top_level_tb.uut.read_regs_out[4] top.top_level_tb.uut.read_regs_out[3] top.top_level_tb.uut.read_regs_out[2] top.top_level_tb.uut.read_regs_out[1] top.top_level_tb.uut.read_regs_out[0]
+#{top.top_level_tb.uut.acumulador.data_in[15:0]} top.top_level_tb.uut.acumulador.data_in[15] top.top_level_tb.uut.acumulador.data_in[14] top.top_level_tb.uut.acumulador.data_in[13] top.top_level_tb.uut.acumulador.data_in[12] top.top_level_tb.uut.acumulador.data_in[11] top.top_level_tb.uut.acumulador.data_in[10] top.top_level_tb.uut.acumulador.data_in[9] top.top_level_tb.uut.acumulador.data_in[8] top.top_level_tb.uut.acumulador.data_in[7] top.top_level_tb.uut.acumulador.data_in[6] top.top_level_tb.uut.acumulador.data_in[5] top.top_level_tb.uut.acumulador.data_in[4] top.top_level_tb.uut.acumulador.data_in[3] top.top_level_tb.uut.acumulador.data_in[2] top.top_level_tb.uut.acumulador.data_in[1] top.top_level_tb.uut.acumulador.data_in[0]
+#{top.top_level_tb.uut.ula.resultado[15:0]} top.top_level_tb.uut.ula.resultado[15] top.top_level_tb.uut.ula.resultado[14] top.top_level_tb.uut.ula.resultado[13] top.top_level_tb.uut.ula.resultado[12] top.top_level_tb.uut.ula.resultado[11] top.top_level_tb.uut.ula.resultado[10] top.top_level_tb.uut.ula.resultado[9] top.top_level_tb.uut.ula.resultado[8] top.top_level_tb.uut.ula.resultado[7] top.top_level_tb.uut.ula.resultado[6] top.top_level_tb.uut.ula.resultado[5] top.top_level_tb.uut.ula.resultado[4] top.top_level_tb.uut.ula.resultado[3] top.top_level_tb.uut.ula.resultado[2] top.top_level_tb.uut.ula.resultado[1] top.top_level_tb.uut.ula.resultado[0]
+[pattern_trace] 1
+[pattern_trace] 0
