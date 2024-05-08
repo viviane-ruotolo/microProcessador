@@ -1,0 +1,24 @@
+del work-obj93.cf
+
+ghdl -a maq_estados.vhd
+ghdl -e maq_estados
+ghdl -a maq_estados_tb.vhd
+ghdl -e maq_estados_tb
+
+ghdl -a rom.vhd
+ghdl -e rom
+ghdl -a rom_tb.vhd
+ghdl -e rom_tb
+
+ghdl -a program_counter.vhd
+ghdl -e program_counter
+ghdl -a program_counter_tb.vhd
+ghdl -e program_counter_tb
+
+ghdl -a unidade_controle.vhd
+ghdl -e unidade_controle
+ghdl -a unidade_controle_tb.vhd
+ghdl -e unidade_controle_tb
+
+ghdl -r unidade_controle_tb --wave=unidade_controle_tb.ghw
+gtkwave unidade_controle_tb.ghw
