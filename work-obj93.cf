@@ -1,10 +1,19 @@
 v 4
-file . "program_counter.vhd" "ff1a82164d5723338a196ce59daf0ce664890bbf" "20240508232330.574":
-  entity program_counter at 1( 0) + 0 on 43;
-  architecture a_registrador of registrador at 15( 319) + 0 on 44;
-file . "maq_estados.vhd" "3537aed5459723b4942b61717692eecdb4ccccb6" "20240508231140.773":
-  entity maq_estados at 1( 0) + 0 on 39;
-  architecture a_maq_estados of maq_estados at 15( 297) + 0 on 40;
+file . "program_counter_tb.vhd" "55b348304e8aa3c77bffbb36c10946da1961af0d" "20240509053625.096":
+  entity program_counter_tb at 1( 0) + 0 on 79;
+  architecture a_program_counter_tb of program_counter_tb at 8( 116) + 0 on 80;
+file . "rom_tb.vhd" "6e48ebd8e931e1521489245bf1bccd808c4b6c7d" "20240509050412.116":
+  entity rom_tb at 1( 0) + 0 on 63;
+  architecture a_rom_tb of rom_tb at 8( 104) + 0 on 64;
+file . "maq_estados_tb.vhd" "e83d73069528f3a1d0b7f53509454604a567a760" "20240509043005.088":
+  entity maq_estados_tb at 1( 0) + 0 on 59;
+  architecture a_maq_estados_tb of maq_estados_tb at 8( 112) + 0 on 60;
+file . "program_counter.vhd" "235c8a2e67d67f90dac2bee57509e96410aca382" "20240509053233.426":
+  entity program_counter at 1( 0) + 0 on 77;
+  architecture a_program_counter of program_counter at 15( 319) + 0 on 78;
+file . "maq_estados.vhd" "079d31326f3daebf9d3d2572f70c8afa06e499a9" "20240509043004.978":
+  entity maq_estados at 1( 0) + 0 on 57;
+  architecture a_maq_estados of maq_estados at 13( 226) + 0 on 58;
 file . "top_level.vhd" "8ca9c0518ac7396592506fb4327d81db0b7eedbb" "20240503194740.948":
   entity top_level at 1( 0) + 0 on 35;
   architecture a_top_level of top_level at 21( 638) + 0 on 36;
@@ -46,6 +55,6 @@ file . "ula_16bits_tb.vhd" "caed0d49f322fb0566d99a4d4e38c0d7f898851e" "202405031
 file . "top_level_tb.vhd" "8771230626ca443184abc684343a11ba7aedac58" "20240503194741.035":
   entity top_level_tb at 1( 0) + 0 on 37;
   architecture a_top_level_tb of top_level_tb at 8( 106) + 0 on 38;
-file . "rom.vhd" "bcf228c04754416feffd11330b818a29e1800823" "20240508231241.087":
-  entity rom at 1( 0) + 0 on 41;
-  architecture a_rom of rom at 13( 238) + 0 on 42;
+file . "rom.vhd" "bcf228c04754416feffd11330b818a29e1800823" "20240509050211.304":
+  entity rom at 1( 0) + 0 on 61;
+  architecture a_rom of rom at 13( 238) + 0 on 62;

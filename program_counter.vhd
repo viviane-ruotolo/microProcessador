@@ -12,7 +12,7 @@ entity program_counter is
     );
 end entity;
 
-architecture a_registrador of registrador is
+architecture a_program_counter of program_counter is
     signal endereco: unsigned(6 downto 0);
     
 begin
@@ -26,6 +26,6 @@ begin
             end if;
         end if;
     end process;
-                                
+
     data_out <= endereco;
 end architecture;
