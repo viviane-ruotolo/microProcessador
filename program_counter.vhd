@@ -6,6 +6,7 @@ entity program_counter is
     port(
         clock: in std_logic;
         write_enable: in std_logic;
+        reset: in std_logic;
         data_in: in unsigned(6 downto 0);
         data_out: out unsigned(6 downto 0)
     );
@@ -17,7 +18,9 @@ architecture a_program_counter of program_counter is
 begin
     process(clock, write_enable)
     begin
-        if write_enable = '1' then   
+        if reset = '1' then 
+            endereco <= "0000000";
+        elsif write_enable = '1' then   
             if rising_edge(clock) then
                 endereco <= data_in;
             end if;

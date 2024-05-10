@@ -15,7 +15,7 @@ architecture a_unidade_controle_tb of unidade_controle_tb is
     end component;
 
     constant time_period : time := 100 ns; -- Periodo do clock
-    signal clock_s, reset_s, finished, inicio: std_logic;
+    signal clock_s, reset_s, finished: std_logic;
     signal data_out_s: unsigned(15 downto 0);
 begin 
 
@@ -41,10 +41,10 @@ begin
     
     process
     begin
-        inicio <= '1';
-        wait for time_period;
-        inicio <= '0';
-        wait for 9 * time_period;
+        reset_s <= '1';
+        wait for 2 * time_period;
+        reset_s <= '0';
+        wait for 8 * time_period;
         wait;
     end process;
 

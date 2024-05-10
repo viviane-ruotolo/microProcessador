@@ -10,17 +10,18 @@ architecture a_program_counter_tb of program_counter_tb is
         port(
             clock: in std_logic;
             write_enable: in std_logic;
+            reset: in std_logic;
             data_in: in unsigned(6 downto 0);
             data_out: out unsigned(6 downto 0)
         );
     end component;
     constant time_period : time := 100 ns; -- Periodo do clock
     signal finished : std_logic := '0';
-    signal clk: std_logic;
+    signal clk, reset: std_logic;
     signal data_i, data_o: unsigned(6 downto 0);
         
 begin 
-        uut: program_counter port map (clock => clk, write_enable => '1', data_in => data_i, data_out => data_o);
+        uut: program_counter port map (clock => clk, write_enable => '1', reset => reset, data_in => data_i, data_out => data_o);
 
         sim_time_proc: process
         begin
