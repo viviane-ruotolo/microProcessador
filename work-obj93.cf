@@ -1,60 +1,25 @@
 v 4
-file . "program_counter_tb.vhd" "55b348304e8aa3c77bffbb36c10946da1961af0d" "20240509053625.096":
-  entity program_counter_tb at 1( 0) + 0 on 79;
-  architecture a_program_counter_tb of program_counter_tb at 8( 116) + 0 on 80;
-file . "rom_tb.vhd" "6e48ebd8e931e1521489245bf1bccd808c4b6c7d" "20240509050412.116":
-  entity rom_tb at 1( 0) + 0 on 63;
-  architecture a_rom_tb of rom_tb at 8( 104) + 0 on 64;
-file . "maq_estados_tb.vhd" "e83d73069528f3a1d0b7f53509454604a567a760" "20240509043005.088":
-  entity maq_estados_tb at 1( 0) + 0 on 59;
-  architecture a_maq_estados_tb of maq_estados_tb at 8( 112) + 0 on 60;
-file . "program_counter.vhd" "235c8a2e67d67f90dac2bee57509e96410aca382" "20240509053233.426":
-  entity program_counter at 1( 0) + 0 on 77;
-  architecture a_program_counter of program_counter at 15( 319) + 0 on 78;
-file . "maq_estados.vhd" "079d31326f3daebf9d3d2572f70c8afa06e499a9" "20240509043004.978":
-  entity maq_estados at 1( 0) + 0 on 57;
-  architecture a_maq_estados of maq_estados at 13( 226) + 0 on 58;
-file . "top_level.vhd" "8ca9c0518ac7396592506fb4327d81db0b7eedbb" "20240503194740.948":
-  entity top_level at 1( 0) + 0 on 35;
-  architecture a_top_level of top_level at 21( 638) + 0 on 36;
-file . "ula_16bits.vhd" "60abb73914c6ee426021fcef62224a32693802e2" "20240503194740.801":
-  entity ula_16bits at 1( 0) + 0 on 31;
-  architecture a_ula_16bits of ula_16bits at 14( 310) + 0 on 32;
-file . "banco_regs.vhd" "c0adeecadc94139e47ea47b54397d521e60be332" "20240503194740.646":
-  entity banco_regs at 1( 0) + 0 on 27;
-  architecture a_banco_regs of banco_regs at 17( 417) + 0 on 28;
-file . "registrador.vhd" "b0016665e73721dc1cbbb2d9ed71c75abcc10b41" "20240503194740.505":
-  entity registrador at 1( 0) + 0 on 23;
-file . "mux_8x1.vhd" "04d402d5c03544ec28f847970cdca8d06b3dda00" "20240503194740.363":
-  entity mux_8x1 at 1( 0) + 0 on 19;
-  architecture a_mux_8x1 of mux_8x1 at 20( 537) + 0 on 20;
-file . "mux_4x1.vhd" "294a5a456ed742d259132dbe13550f444100384b" "20240503194740.221":
-  entity mux_4x1 at 1( 0) + 0 on 15;
-  architecture a_mux_4x1 of mux_4x1 at 16( 377) + 0 on 16;
-file . "mux_2x1.vhd" "b4ef2f30dcf1cb61a501f1145b76f95de952af67" "20240503194740.072":
-  entity mux_2x1 at 1( 0) + 0 on 11;
-  architecture a_mux_2x1 of mux_2x1 at 14( 286) + 0 on 12;
-file . "mux_2x1_tb.vhd" "9505c1c524cdec660dc5058dfbb25fcd521587d1" "20240503194740.149":
-  entity mux_2x1_tb at 1( 0) + 0 on 13;
-  architecture a_mux_2x1_tb of mux_2x1_tb at 8( 104) + 0 on 14;
-file . "mux_4x1_tb.vhd" "ff6ee5b6428262cfdd4ac7df1a93733133a66eb5" "20240503194740.292":
-  entity mux_4x1_tb at 1( 0) + 0 on 17;
-  architecture a_mux_4x1_tb of mux_4x1_tb at 8( 104) + 0 on 18;
-file . "mux_8x1_tb.vhd" "a245d3de9a9409f58afeb1948dab810e6b5d4169" "20240503194740.433":
-  entity mux_8x1_tb at 1( 0) + 0 on 21;
-  architecture a_mux_8x1_tb of mux_8x1_tb at 8( 104) + 0 on 22;
-file . "registrador_tb.vhd" "2e26079a6e4a2c1f243a1aa04d23b0dfd7d75e22" "20240503194740.575":
-  entity registrador_tb at 1( 0) + 0 on 25;
-  architecture a_registrador_tb of registrador_tb at 8( 115) + 0 on 26;
-file . "banco_regs_tb.vhd" "da9ba71de41bb3da8fd672287ba3cbbd03fa44a2" "20240503194740.723":
-  entity banco_regs_tb at 1( 0) + 0 on 29;
-  architecture a_banco_regs_tb of banco_regs_tb at 8( 114) + 0 on 30;
-file . "ula_16bits_tb.vhd" "caed0d49f322fb0566d99a4d4e38c0d7f898851e" "20240503194740.873":
-  entity ula_16bits_tb at 1( 0) + 0 on 33;
-  architecture a_ula_16bits_tb of ula_16bits_tb at 8( 107) + 0 on 34;
-file . "top_level_tb.vhd" "8771230626ca443184abc684343a11ba7aedac58" "20240503194741.035":
-  entity top_level_tb at 1( 0) + 0 on 37;
-  architecture a_top_level_tb of top_level_tb at 8( 106) + 0 on 38;
-file . "rom.vhd" "bcf228c04754416feffd11330b818a29e1800823" "20240509050211.304":
-  entity rom at 1( 0) + 0 on 61;
-  architecture a_rom of rom at 13( 238) + 0 on 62;
+file . "unidade_controle_tb.vhd" "154a58295ff711a7f44c7b06340cf5e935210f31" "20240509081637.737":
+  entity unidade_controle_tb at 1( 0) + 0 on 25;
+  architecture a_unidade_controle_tb of unidade_controle_tb at 8( 114) + 0 on 26;
+file . "program_counter_tb.vhd" "b68c77038856061ff37596553275a7dc2f464fb9" "20240509081637.548":
+  entity program_counter_tb at 1( 0) + 0 on 21;
+  architecture a_program_counter_tb of program_counter_tb at 8( 116) + 0 on 22;
+file . "rom_tb.vhd" "6e48ebd8e931e1521489245bf1bccd808c4b6c7d" "20240509081637.361":
+  entity rom_tb at 1( 0) + 0 on 17;
+  architecture a_rom_tb of rom_tb at 8( 104) + 0 on 18;
+file . "maq_estados_tb.vhd" "e83d73069528f3a1d0b7f53509454604a567a760" "20240509081637.171":
+  entity maq_estados_tb at 1( 0) + 0 on 13;
+  architecture a_maq_estados_tb of maq_estados_tb at 8( 112) + 0 on 14;
+file . "maq_estados.vhd" "079d31326f3daebf9d3d2572f70c8afa06e499a9" "20240509081637.091":
+  entity maq_estados at 1( 0) + 0 on 11;
+  architecture a_maq_estados of maq_estados at 13( 226) + 0 on 12;
+file . "rom.vhd" "984650115afd1ffa13925284683f80eecc673779" "20240509081637.267":
+  entity rom at 1( 0) + 0 on 15;
+  architecture a_rom of rom at 13( 238) + 0 on 16;
+file . "program_counter.vhd" "a3b4f58e6490e3f3f294d758c32eabacf52ed96d" "20240509081637.454":
+  entity program_counter at 1( 0) + 0 on 19;
+  architecture a_program_counter of program_counter at 14( 289) + 0 on 20;
+file . "unidade_controle.vhd" "677479b20779c407f0605a5a24fddea87cd4c668" "20240509081637.649":
+  entity unidade_controle at 1( 0) + 0 on 23;
+  architecture a_unidade_controle of unidade_controle at 13( 242) + 0 on 24;

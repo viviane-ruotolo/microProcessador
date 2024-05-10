@@ -15,11 +15,9 @@ architecture a_program_counter of program_counter is
     signal endereco: unsigned(6 downto 0);
     
 begin
-    process(clock, reset, write_enable)
+    process(clock, write_enable)
     begin
-        if reset = '1' then 
-            endereco <= "0000000";
-        elsif write_enable = '1' then   
+        if write_enable = '1' then   
             if rising_edge(clock) then
                 endereco <= data_in;
             end if;

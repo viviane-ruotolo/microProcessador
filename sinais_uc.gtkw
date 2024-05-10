@@ -1,0 +1,48 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Thu May 09 07:55:39 2024
+[*]
+[dumpfile] "E:\Documents\2-Projects\microProcessador\unidade_controle_tb.ghw"
+[dumpfile_mtime] "Thu May 09 07:55:08 2024"
+[dumpfile_size] 1656
+[savefile] "E:\Documents\2-Projects\microProcessador\sinais_uc.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-28.284250 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.unidade_controle_tb.
+[treeopen] top.unidade_controle_tb.uut.
+[treeopen] top.unidade_controle_tb.uut.rom_uc.
+[sst_width] 197
+[signals_width] 248
+[sst_expanded] 1
+[sst_vpaned_height] 323
+@28
+top.unidade_controle_tb.clock_s
+top.unidade_controle_tb.reset_s
+top.unidade_controle_tb.finished
+@22
+#{top.unidade_controle_tb.data_out_s[15:0]} top.unidade_controle_tb.data_out_s[15] top.unidade_controle_tb.data_out_s[14] top.unidade_controle_tb.data_out_s[13] top.unidade_controle_tb.data_out_s[12] top.unidade_controle_tb.data_out_s[11] top.unidade_controle_tb.data_out_s[10] top.unidade_controle_tb.data_out_s[9] top.unidade_controle_tb.data_out_s[8] top.unidade_controle_tb.data_out_s[7] top.unidade_controle_tb.data_out_s[6] top.unidade_controle_tb.data_out_s[5] top.unidade_controle_tb.data_out_s[4] top.unidade_controle_tb.data_out_s[3] top.unidade_controle_tb.data_out_s[2] top.unidade_controle_tb.data_out_s[1] top.unidade_controle_tb.data_out_s[0]
+@28
+top.unidade_controle_tb.uut.m_estados.estado
+@22
+#{top.unidade_controle_tb.uut.instrucao[15:0]} top.unidade_controle_tb.uut.instrucao[15] top.unidade_controle_tb.uut.instrucao[14] top.unidade_controle_tb.uut.instrucao[13] top.unidade_controle_tb.uut.instrucao[12] top.unidade_controle_tb.uut.instrucao[11] top.unidade_controle_tb.uut.instrucao[10] top.unidade_controle_tb.uut.instrucao[9] top.unidade_controle_tb.uut.instrucao[8] top.unidade_controle_tb.uut.instrucao[7] top.unidade_controle_tb.uut.instrucao[6] top.unidade_controle_tb.uut.instrucao[5] top.unidade_controle_tb.uut.instrucao[4] top.unidade_controle_tb.uut.instrucao[3] top.unidade_controle_tb.uut.instrucao[2] top.unidade_controle_tb.uut.instrucao[1] top.unidade_controle_tb.uut.instrucao[0]
+#{top.unidade_controle_tb.uut.opcode[3:0]} top.unidade_controle_tb.uut.opcode[3] top.unidade_controle_tb.uut.opcode[2] top.unidade_controle_tb.uut.opcode[1] top.unidade_controle_tb.uut.opcode[0]
+#{top.unidade_controle_tb.uut.end_instrucao[6:0]} top.unidade_controle_tb.uut.end_instrucao[6] top.unidade_controle_tb.uut.end_instrucao[5] top.unidade_controle_tb.uut.end_instrucao[4] top.unidade_controle_tb.uut.end_instrucao[3] top.unidade_controle_tb.uut.end_instrucao[2] top.unidade_controle_tb.uut.end_instrucao[1] top.unidade_controle_tb.uut.end_instrucao[0]
+#{top.unidade_controle_tb.uut.incrementa_pc[6:0]} top.unidade_controle_tb.uut.incrementa_pc[6] top.unidade_controle_tb.uut.incrementa_pc[5] top.unidade_controle_tb.uut.incrementa_pc[4] top.unidade_controle_tb.uut.incrementa_pc[3] top.unidade_controle_tb.uut.incrementa_pc[2] top.unidade_controle_tb.uut.incrementa_pc[1] top.unidade_controle_tb.uut.incrementa_pc[0]
+@28
+top.unidade_controle_tb.inicio
+@29
+top.unidade_controle_tb.uut.inicio
+@22
+#{top.unidade_controle_tb.uut.atual_pc[6:0]} top.unidade_controle_tb.uut.atual_pc[6] top.unidade_controle_tb.uut.atual_pc[5] top.unidade_controle_tb.uut.atual_pc[4] top.unidade_controle_tb.uut.atual_pc[3] top.unidade_controle_tb.uut.atual_pc[2] top.unidade_controle_tb.uut.atual_pc[1] top.unidade_controle_tb.uut.atual_pc[0]
+#{top.unidade_controle_tb.uut.proximo_pc[6:0]} top.unidade_controle_tb.uut.proximo_pc[6] top.unidade_controle_tb.uut.proximo_pc[5] top.unidade_controle_tb.uut.proximo_pc[4] top.unidade_controle_tb.uut.proximo_pc[3] top.unidade_controle_tb.uut.proximo_pc[2] top.unidade_controle_tb.uut.proximo_pc[1] top.unidade_controle_tb.uut.proximo_pc[0]
+@28
+top.unidade_controle_tb.uut.nop_en
+top.unidade_controle_tb.uut.jump_en
+top.unidade_controle_tb.uut.write_en_pc
+@22
+#{top.unidade_controle_tb.uut.rom_uc.endereco[6:0]} top.unidade_controle_tb.uut.rom_uc.endereco[6] top.unidade_controle_tb.uut.rom_uc.endereco[5] top.unidade_controle_tb.uut.rom_uc.endereco[4] top.unidade_controle_tb.uut.rom_uc.endereco[3] top.unidade_controle_tb.uut.rom_uc.endereco[2] top.unidade_controle_tb.uut.rom_uc.endereco[1] top.unidade_controle_tb.uut.rom_uc.endereco[0]
+[pattern_trace] 1
+[pattern_trace] 0
