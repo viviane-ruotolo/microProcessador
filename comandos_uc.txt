@@ -15,6 +15,9 @@ ghdl -e program_counter
 ghdl -a program_counter_tb.vhd
 ghdl -e program_counter_tb
 
+ghdl -a incrementa_pc.vhd
+ghdl -e incrementa_pc
+
 ghdl -a unidade_controle.vhd
 ghdl -e unidade_controle
 ghdl -a unidade_controle_tb.vhd
