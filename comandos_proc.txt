@@ -1,0 +1,54 @@
+del work-obj93.cf
+
+ghdl -a mux_2x1.vhd
+ghdl -e mux_2x1
+ghdl -a mux_2x1_tb.vhd
+ghdl -e mux_2x1_tb
+
+ghdl -a mux_4x1.vhd
+ghdl -e mux_4x1
+ghdl -a mux_4x1_tb.vhd
+ghdl -e mux_4x1_tb
+
+ghdl -a mux_8x1.vhd
+ghdl -e mux_8x1
+ghdl -a mux_8x1_tb.vhd
+ghdl -e mux_8x1_tb
+
+ghdl -a registrador.vhd
+ghdl -e registrador
+ghdl -a registrador_tb.vhd
+ghdl -e registrador_tb
+
+ghdl -a banco_regs.vhd
+ghdl -e banco_regs
+
+ghdl -a ula_16bits.vhd
+ghdl -e ula_16bits
+
+ghdl -a maq_estados.vhd
+ghdl -e maq_estados
+
+ghdl -a rom.vhd
+ghdl -e rom
+ghdl -a rom_tb.vhd
+ghdl -e rom_tb
+
+ghdl -a program_counter.vhd
+ghdl -e program_counter
+ghdl -a program_counter_tb.vhd
+ghdl -e program_counter_tb
+
+ghdl -a incrementa_pc.vhd
+ghdl -e incrementa_pc
+
+ghdl -a unidade_controle.vhd
+ghdl -e unidade_controle
+
+ghdl -a processador.vhd
+ghdl -e processador
+ghdl -a processador_tb.vhd
+ghdl -e processador_tb
+
+ghdl -r processador_tb --wave=processador_tb.ghw
+gtkwave processador_tb.ghw

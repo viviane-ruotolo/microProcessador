@@ -28,7 +28,7 @@ architecture  a_ula_16bits of ula_16bits is
     begin
     
     soma <= entrada0 + entrada1;
-    sub <= entrada0 - entrada1;
+    sub <= entrada1 - entrada0;
     op_and <= entrada0 and entrada1;
     op_or <= entrada0 or entrada1;
 
