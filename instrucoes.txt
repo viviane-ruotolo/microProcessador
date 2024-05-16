@@ -1,0 +1,30 @@
+A.Carrega R3 (o registrador 3) com o valor 5
+LD R3, 5
+
+B. Carrega R4 com 8
+LD R4, 8
+
+C. Soma R3 com R4 e guarda em R5
+MOV A, R3
+ADD A, R4
+MOV R5, A
+
+D. Subtrai 1 de R5
+SUBI A, 1
+MOV R5, A
+
+E. Salta para o endereço 20
+B endereco_20
+
+F. Zera R5 (nunca será executada)
+LD R5, 0
+
+G. No endereço 20, copia R5 para R3
+MOV A, R5
+MOV R3, A
+
+H. Salta para o passo C desta lista (R5 <= R3+R4)
+B endereco_passo_C
+
+I. Zera R3 (nunca será executada)
+LD R3, 0

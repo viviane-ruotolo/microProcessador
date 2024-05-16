@@ -6,7 +6,13 @@ entity unidade_controle is
     port(
         clock: in std_logic;
         reset: in std_logic;
-        data_out: out unsigned(15 downto 0)
+        destino, source: out unsigned(3 downto 0);
+        op_ula: out unsigned(1 downto 0);
+        cte: out unsigned(8 downto 0);
+        write_en_acu: out std_logic;
+        write_en_bregs: out std_logic;
+        sel_regs_ou_cte_para_ula: out std_logic; -- seleciona no mux o dado para a ULA (cte ou registrador)
+        sel_data_cte_ou_regs_acu_ula: out unsigned(1 downto 0) -- seleciona se vai escrever um dado da constante ou de registrador/acumulador
     );
 end entity;
 
@@ -34,7 +40,7 @@ architecture a_unidade_controle of unidade_controle is
         port(
             clock: in std_logic;
             reset: in std_logic;
-            estado_out: out std_logic
+            estado_out: out unsigned(1 downto 0)
         );
     end component;
 
@@ -46,12 +52,25 @@ architecture a_unidade_controle of unidade_controle is
     );
     end component;
 
+    component registrador is
+        port(
+            clock: in std_logic;
+            reset: in std_logic;
+            write_enable: in std_logic;
+            data_in: in unsigned(15 downto 0);
+            data_out: out unsigned(15 downto 0)
+        );
+    end component;
+
     signal atual_pc, data_out_pc: unsigned(6 downto 0);
-    signal estado_s, wr_en_incrementa: std_logic;
+    signal wr_en_incrementa: std_logic;
+    signal estado_s: unsigned(1 downto 0);
     signal dado_rom_s, instrucao: unsigned(15 downto 0);
-    signal opcode: unsigned(3 downto 0);
-    signal end_instrucao, proximo_pc, incrementado_pc: unsigned(6 downto 0);
-    signal write_en_pc, jump_en, nop_en: std_logic;
+    signal opcode, data_in_reg_op: unsigned(15 downto 0);
+    signal end_instrucao: unsigned(6 downto 0);
+    signal proximo_pc, incrementado_pc: unsigned(6 downto 0);
+    signal write_en_pc, write_en_reg_inst, write_en_reg_op, jump_en, nop_en: std_logic;
+    signal destino_s, source_s: unsigned(3 downto 0);
 
 begin 
 
@@ -64,32 +83,65 @@ begin
 
     inc_pc: incrementa_pc port map(atual_pc => atual_pc, write_enable => wr_en_incrementa, proximo_pc => incrementado_pc);
     
-    wr_en_incrementa <= estado_s and (not jump_en);
-    
-    -- Trocar pelo registrador de instruçao
-    instrucao <= dado_rom_s when estado_s = '0' else
-                 instrucao when estado_s = '1' else   
-                "0000000000000000";
+    reg_instrucao: registrador port map(clock => clock, reset => reset, write_enable => write_en_reg_inst, data_in => dado_rom_s, data_out => instrucao);
 
-    write_en_pc <= '1' when estado_s = '1' else
-                    '0' when estado_s = '0' else 
+    reg_opcode: registrador port map (clock => clock, reset => reset, write_enable => write_en_reg_op, data_in => data_in_reg_op, data_out => opcode);
+
+    data_in_reg_op <= "0000000000000" & instrucao(15 downto 13);
+
+    wr_en_incrementa <= '1' when estado_s = "10" and jump_en = '0' else
+                        '0';
+    
+    write_en_reg_inst <= '1' when estado_s = "00" else
                     '0';
 
-    -- jumps (1111), nop (0011) 
-    opcode <= instrucao(15 downto 12);
-    end_instrucao <= instrucao(6 downto 0);
+    write_en_pc <= '1' when estado_s = "10" else
+                    '0';
+
+    write_en_reg_op <= '1' when estado_s = "01" else
+                    '0';
+
+    end_instrucao <= instrucao(12 downto 6);
+    destino_s <= instrucao(12 downto 9);
+    source_s <= instrucao(12 downto 9) when opcode(2 downto 0) = "011" or opcode(2 downto 0) = "101" else
+              instrucao(8 downto 5);
+    cte <= instrucao(8 downto 0); 
+    destino <= destino_s;
+    source <= source_s;
     
-    jump_en <=  '1' when opcode="1111" else
+    jump_en <=  '1' when estado_s = "10" and opcode(2 downto 0) ="001" else
     '0';
 
     -- Não sabemos o que fazer com o nop
-    nop_en <=  '1' when opcode="0011" else
+    nop_en <=  '1' when opcode(2 downto 0) ="0011" else
     '0';
+
+    op_ula <= "00" when opcode(2 downto 0) ="010" else 
+              "01" when opcode(2 downto 0) ="011" else
+              "00";
 
     proximo_pc <= end_instrucao when jump_en = '1' else 
                   incrementado_pc;
     
-    data_out <= instrucao;
- 
+    write_en_acu <= '1' when estado_s = "10" and destino_s = "1000" and (opcode(2 downto 0) = "010" or opcode(2 downto 0) = "100" or opcode(2 downto 0) ="110") else 
+                    '1' when estado_s = "10" and source_s = "1000" and (opcode(2 downto 0) ="011" or opcode(2 downto 0) ="101") else 
+                    '0';
+
+    write_en_bregs <= '1' when estado_s = "10" and destino_s /= "1000" and (opcode(2 downto 0) = "010" or opcode(2 downto 0) = "100" or opcode(2 downto 0) ="110") else 
+                      '1' when estado_s = "10" and source_s /= "1000" and (opcode(2 downto 0) ="011" or opcode(2 downto 0) ="101") else 
+                      '0'; 
+    -- 0 cte - 1 regs
+    -- seleciona no mux o dado para a ULA (cte ou registrador)
+    sel_regs_ou_cte_para_ula <= '0' when estado_s = "10" and opcode(2 downto 0) ="011" else
+                                '1';
+    
+    -- seleciona se vai escrever um dado da constante ou de registrador/acumulador
+    -- 00 (cte) - 01 (regs) - 10 (ula) - 11 (acu)
+    sel_data_cte_ou_regs_acu_ula <= "00" when estado_s = "10" and opcode(2 downto 0) ="101" else
+                                "01" when estado_s = "10" and opcode(2 downto 0) ="110" and source_s /= "1000" else 
+                                "10" when estado_s = "10" and (opcode(2 downto 0) ="010" or opcode(2 downto 0) ="100" or opcode(2 downto 0) ="011") else 
+                                "11" when estado_s = "10" and opcode(2 downto 0) ="110" and source_s = "1000" else
+                                "00"; 
+           
 
 end architecture;

@@ -4,16 +4,16 @@ use ieee.numeric_std.all;
 
 entity top_level is
     port(
-        cte: in unsigned(15 downto 0);
-        clock: in std_logic;
-        reset: in std_logic;
+        cte: in unsigned(15 downto 0); --*
+        clock: in std_logic; --*
+        reset: in std_logic; --*
         sel_regs_cte: in std_logic; -- seleciona no mux o dado para a ULA (cte ou registrador)
-        write_en_br: in std_logic;
+        write_en_bregs: in std_logic;
         write_en_acu: in std_logic;
-        read_regs: in unsigned(2 downto 0);
-        write_in_regs: in unsigned(2 downto 0);
-        selec_op_ula: in unsigned(1 downto 0);
-        write_regs_data: in unsigned(15 downto 0);
+        read_regs: in unsigned(2 downto 0); --* source
+        write_in_regs: in unsigned(2 downto 0); --* destino
+        selec_op_ula: in unsigned(1 downto 0); --*
+        write_regs_data: in unsigned(15 downto 0); --* constante ou reg/acu se for MOV
         result_tl: out unsigned(15 downto 0)
     );
 end entity;
@@ -50,17 +50,17 @@ architecture a_top_level of top_level is
         );
     end component;
 
-component mux_2x1
-    port(
-        sel_op: in std_logic;
-        op0: in unsigned(15 downto 0);
-        op1: in unsigned(15 downto 0);
-        saida: out unsigned(15 downto 0)            
-    );
-end component;
+    component mux_2x1
+        port(
+            sel_op: in std_logic;
+            op0: in unsigned(15 downto 0);
+            op1: in unsigned(15 downto 0);
+            saida: out unsigned(15 downto 0)            
+        );
+    end component;
     
     signal read_regs_out, data_ula1, data_ula2 : unsigned(15 downto 0);
-    signal write_acu: unsigned(15 downto 0) := "0000000000000000"; -- Erro na resposta final
+    signal write_acu: unsigned(15 downto 0) := "0000000000000000"; 
 
 begin
 
@@ -72,6 +72,8 @@ begin
 
     ula: ula_16bits port map (entrada0 => data_ula1, entrada1 => data_ula2, selec_op => selec_op_ula, resultado => write_acu);
 
+    -- Resultado deveria ser um registrador para só pegar o resultado da ula quando for requisitada uma operação
+    -- Ou seja, a resposta certa está sempre no data_ula2, porque só escreve o resultado da ula no acumulador no momento correto
     result_tl <= write_acu;
 
 end architecture;
