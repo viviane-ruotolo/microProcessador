@@ -123,24 +123,24 @@ begin
     proximo_pc <= end_instrucao when jump_en = '1' else 
                   incrementado_pc;
     
-    write_en_acu <= '1' when estado_s = "10" and destino_s = "1000" and (opcode(2 downto 0) = "010" or opcode(2 downto 0) = "100" or opcode(2 downto 0) ="110") else 
-                    '1' when estado_s = "10" and source_s = "1000" and (opcode(2 downto 0) ="011" or opcode(2 downto 0) ="101") else 
+    write_en_acu <= '1' when estado_s = "11" and destino_s = "1000" and (opcode(2 downto 0) = "010" or opcode(2 downto 0) = "100" or opcode(2 downto 0) ="110") else 
+                    '1' when estado_s = "11" and source_s = "1000" and (opcode(2 downto 0) ="011" or opcode(2 downto 0) ="101") else 
                     '0';
 
-    write_en_bregs <= '1' when estado_s = "10" and destino_s /= "1000" and (opcode(2 downto 0) = "010" or opcode(2 downto 0) = "100" or opcode(2 downto 0) ="110") else 
-                      '1' when estado_s = "10" and source_s /= "1000" and (opcode(2 downto 0) ="011" or opcode(2 downto 0) ="101") else 
+    write_en_bregs <= '1' when estado_s = "11" and destino_s /= "1000" and (opcode(2 downto 0) = "010" or opcode(2 downto 0) = "100" or opcode(2 downto 0) ="110") else 
+                      '1' when estado_s = "11" and source_s /= "1000" and (opcode(2 downto 0) ="011" or opcode(2 downto 0) ="101") else 
                       '0'; 
     -- 0 cte - 1 regs
     -- seleciona no mux o dado para a ULA (cte ou registrador)
-    sel_regs_ou_cte_para_ula <= '0' when estado_s = "10" and opcode(2 downto 0) ="011" else
+    sel_regs_ou_cte_para_ula <= '0' when estado_s = "11" and opcode(2 downto 0) ="011" else
                                 '1';
     
     -- seleciona se vai escrever um dado da constante ou de registrador/acumulador
     -- 00 (cte) - 01 (regs) - 10 (ula) - 11 (acu)
-    sel_data_cte_ou_regs_acu_ula <= "00" when estado_s = "10" and opcode(2 downto 0) ="101" else
-                                "01" when estado_s = "10" and opcode(2 downto 0) ="110" and source_s /= "1000" else 
-                                "10" when estado_s = "10" and (opcode(2 downto 0) ="010" or opcode(2 downto 0) ="100" or opcode(2 downto 0) ="011") else 
-                                "11" when estado_s = "10" and opcode(2 downto 0) ="110" and source_s = "1000" else
+    sel_data_cte_ou_regs_acu_ula <= "00" when estado_s = "11" and opcode(2 downto 0) ="101" else
+                                "01" when estado_s = "11" and opcode(2 downto 0) ="110" and source_s /= "1000" else 
+                                "10" when estado_s = "11" and (opcode(2 downto 0) ="010" or opcode(2 downto 0) ="100" or opcode(2 downto 0) ="011") else 
+                                "11" when estado_s = "11" and opcode(2 downto 0) ="110" and source_s = "1000" else
                                 "00"; 
            
 
