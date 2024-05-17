@@ -1,58 +1,58 @@
 v 4
-file . "processador_tb.vhd" "18bb03563af67c1e2cd0dd081f5957be459cd508" "20240516062056.045":
+file . "processador_tb.vhd" "5fefe46678bf11981e60b1bd00c29c1a0d19ce0e" "20240517184544.473":
   entity processador_tb at 1( 0) + 0 on 47;
   architecture a_processador_tb of processador_tb at 8( 109) + 0 on 48;
-file . "unidade_controle.vhd" "5750d96b017246a049a335c98a042f52a2bbcc63" "20240516062055.717":
+file . "unidade_controle.vhd" "db2f5ee3a5f4d37dc8983ed66d9ba8c3166ba9c3" "20240517184544.299":
   entity unidade_controle at 1( 0) + 0 on 43;
   architecture a_unidade_controle of unidade_controle at 19( 662) + 0 on 44;
-file . "program_counter_tb.vhd" "e1a4402d0c355a43d35a72a2d581b4f04147bbaa" "20240516062055.497":
+file . "program_counter_tb.vhd" "e1a4402d0c355a43d35a72a2d581b4f04147bbaa" "20240517184544.161":
   entity program_counter_tb at 1( 0) + 0 on 39;
   architecture a_program_counter_tb of program_counter_tb at 8( 116) + 0 on 40;
-file . "rom_tb.vhd" "6e48ebd8e931e1521489245bf1bccd808c4b6c7d" "20240516062055.262":
+file . "rom_tb.vhd" "6e48ebd8e931e1521489245bf1bccd808c4b6c7d" "20240517184544.015":
   entity rom_tb at 1( 0) + 0 on 35;
   architecture a_rom_tb of rom_tb at 8( 104) + 0 on 36;
-file . "maq_estados.vhd" "7229638d78f4b130518d3d9d7ae62e0bfe8816b4" "20240516062055.063":
+file . "maq_estados.vhd" "760afef833c3ceda4abe668f91d9608006b12eb8" "20240517184543.872":
   entity maq_estados at 1( 0) + 0 on 31;
   architecture a_maq_estados of maq_estados at 12( 211) + 0 on 32;
-file . "banco_regs.vhd" "c0adeecadc94139e47ea47b54397d521e60be332" "20240516062054.881":
+file . "banco_regs.vhd" "c0adeecadc94139e47ea47b54397d521e60be332" "20240517184543.727":
   entity banco_regs at 1( 0) + 0 on 27;
   architecture a_banco_regs of banco_regs at 17( 417) + 0 on 28;
-file . "registrador.vhd" "b0016665e73721dc1cbbb2d9ed71c75abcc10b41" "20240516062054.719":
+file . "registrador.vhd" "b0016665e73721dc1cbbb2d9ed71c75abcc10b41" "20240517184543.588":
   entity registrador at 1( 0) + 0 on 23;
   architecture a_registrador of registrador at 15( 317) + 0 on 24;
-file . "mux_8x1.vhd" "04d402d5c03544ec28f847970cdca8d06b3dda00" "20240516062054.560":
+file . "mux_8x1.vhd" "04d402d5c03544ec28f847970cdca8d06b3dda00" "20240517184543.445":
   entity mux_8x1 at 1( 0) + 0 on 19;
   architecture a_mux_8x1 of mux_8x1 at 20( 537) + 0 on 20;
-file . "mux_4x1.vhd" "294a5a456ed742d259132dbe13550f444100384b" "20240516062054.406":
+file . "mux_4x1.vhd" "294a5a456ed742d259132dbe13550f444100384b" "20240517184543.299":
   entity mux_4x1 at 1( 0) + 0 on 15;
   architecture a_mux_4x1 of mux_4x1 at 16( 377) + 0 on 16;
-file . "mux_2x1.vhd" "b4ef2f30dcf1cb61a501f1145b76f95de952af67" "20240516062054.242":
+file . "mux_2x1.vhd" "b4ef2f30dcf1cb61a501f1145b76f95de952af67" "20240517184543.147":
   entity mux_2x1 at 1( 0) + 0 on 11;
   architecture a_mux_2x1 of mux_2x1 at 14( 286) + 0 on 12;
-file . "mux_2x1_tb.vhd" "9505c1c524cdec660dc5058dfbb25fcd521587d1" "20240516062054.327":
+file . "mux_2x1_tb.vhd" "9505c1c524cdec660dc5058dfbb25fcd521587d1" "20240517184543.230":
   entity mux_2x1_tb at 1( 0) + 0 on 13;
   architecture a_mux_2x1_tb of mux_2x1_tb at 8( 104) + 0 on 14;
-file . "mux_4x1_tb.vhd" "ff6ee5b6428262cfdd4ac7df1a93733133a66eb5" "20240516062054.484":
+file . "mux_4x1_tb.vhd" "ff6ee5b6428262cfdd4ac7df1a93733133a66eb5" "20240517184543.371":
   entity mux_4x1_tb at 1( 0) + 0 on 17;
   architecture a_mux_4x1_tb of mux_4x1_tb at 8( 104) + 0 on 18;
-file . "mux_8x1_tb.vhd" "a245d3de9a9409f58afeb1948dab810e6b5d4169" "20240516062054.638":
+file . "mux_8x1_tb.vhd" "a245d3de9a9409f58afeb1948dab810e6b5d4169" "20240517184543.515":
   entity mux_8x1_tb at 1( 0) + 0 on 21;
   architecture a_mux_8x1_tb of mux_8x1_tb at 8( 104) + 0 on 22;
-file . "registrador_tb.vhd" "2e26079a6e4a2c1f243a1aa04d23b0dfd7d75e22" "20240516062054.794":
+file . "registrador_tb.vhd" "2e26079a6e4a2c1f243a1aa04d23b0dfd7d75e22" "20240517184543.656":
   entity registrador_tb at 1( 0) + 0 on 25;
   architecture a_registrador_tb of registrador_tb at 8( 115) + 0 on 26;
-file . "ula_16bits.vhd" "ff01fe4d2d3304a0f31df3f2d2cd7f9648feebce" "20240516062054.977":
+file . "ula_16bits.vhd" "ff01fe4d2d3304a0f31df3f2d2cd7f9648feebce" "20240517184543.802":
   entity ula_16bits at 1( 0) + 0 on 29;
   architecture a_ula_16bits of ula_16bits at 14( 310) + 0 on 30;
-file . "rom.vhd" "c2d7c4d790efa160cb0ea10677bdbff24e868111" "20240516062055.168":
+file . "rom.vhd" "c2d7c4d790efa160cb0ea10677bdbff24e868111" "20240517184543.943":
   entity rom at 1( 0) + 0 on 33;
   architecture a_rom of rom at 13( 238) + 0 on 34;
-file . "program_counter.vhd" "6a6fe9a8fe414b5b9864d1556ae49218135f37b0" "20240516062055.383":
+file . "program_counter.vhd" "6a6fe9a8fe414b5b9864d1556ae49218135f37b0" "20240517184544.086":
   entity program_counter at 1( 0) + 0 on 37;
   architecture a_program_counter of program_counter at 15( 319) + 0 on 38;
-file . "incrementa_pc.vhd" "6d0f221d407da023f5204ca2d303003aeb83037b" "20240516062055.603":
+file . "incrementa_pc.vhd" "6d0f221d407da023f5204ca2d303003aeb83037b" "20240517184544.230":
   entity incrementa_pc at 1( 0) + 0 on 41;
   architecture a_incrementa_pc of incrementa_pc at 13( 261) + 0 on 42;
-file . "processador.vhd" "8c2a0efcdbdd1dc1d14999821cd4c21471f66c3c" "20240516062055.901":
+file . "processador.vhd" "8c2a0efcdbdd1dc1d14999821cd4c21471f66c3c" "20240517184544.380":
   entity processador at 1( 0) + 0 on 45;
   architecture a_processador of processador at 15( 364) + 0 on 46;
