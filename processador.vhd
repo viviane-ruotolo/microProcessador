@@ -45,7 +45,9 @@ architecture a_processador of processador is
             entrada0: in unsigned(15 downto 0);
             entrada1: in unsigned(15 downto 0);
             selec_op: in unsigned(1 downto 0);
-            resultado: out unsigned(15 downto 0)
+            resultado: out unsigned(15 downto 0);
+            carry: out std_logic;
+            overflow: out std_logic
         );
     end component;
     
@@ -73,8 +75,8 @@ architecture a_processador of processador is
     signal destino, source: unsigned(3 downto 0);
     signal op_ula: unsigned(1 downto 0);
     signal cte: unsigned(8 downto 0);
-    signal write_en_acu: std_logic;
-    signal write_en_bregs: std_logic;
+    signal write_en_acu, carry_in, overflow_in, carry_out, overflow_out, zero_in, zero_out: std_logic;
+    signal write_en_bregs, write_en_cf, write_en_of, write_en_nf, negative_out, write_en_zf: std_logic;
     signal sel_regs_ou_cte_para_ula: std_logic; -- seleciona no mux o dado para a ULA (cte ou registrador)
     signal sel_data_cte_ou_regs_acu_ula: unsigned(1 downto 0); -- seleciona se vai escrever um dado da constante ou de registrador/acumulador
 
@@ -88,7 +90,15 @@ begin
 
     acumulador: registrador port map (clock => clock, reset => reset, write_enable => write_en_acu, data_in => write_acu, data_out => data_ula2);
 
-    ula: ula_16bits port map (entrada0 => data_ula1, entrada1 => data_ula2, selec_op => op_ula, resultado => resultado_ula);
+    ula: ula_16bits port map (entrada0 => data_ula1, entrada1 => data_ula2, selec_op => op_ula, resultado => resultado_ula, carry => carry_in, overflow => overflow_in, zero => zero_in);
+    
+    carry_flag: registrador port map (clock => clock, reset => reset, write_enable => write_en_cf, data_in => carry_in, data_out => carry_out);
+
+    overflow_flag: registrador port map (clock => clock, reset => reset, write_enable => write_en_of, data_in => overflow_in, data_out => overflow_out);
+    
+    negative_flag: registrador port map(clock => clock, reset => reset, write_enable => write_en_nf, data_in => data_ula2(15), data_out  => negative_out);
+    
+    zero_flag: registrador port map(clock => clock, reset => reset, write_enable => write_en_zf, data_in => zero_in, data_out => zero_out);
     
     cte_16bits <= "0000000" & cte;
     -- seleciona se vai escrever um dado da constante ou de registrador/acumulador

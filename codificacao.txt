@@ -1,13 +1,13 @@
 MSB b15                b0 LSB
       |                |
 B:    001 eeeeeee xxxxxx
+J:    111 eeeeeee xxxxxx
 ADD:  010 dddd ssss xxxxx
 SUB:  100 dddd ssss xxxxx
 MOV:  110 dddd ssss xxxxx
 SUBI: 011 ssss ccccccccc
 LD:   101 ssss ccccccccc
 NOP:  000 xxxxxxxxxxxxx
-
 ...
 onde
 dddd  identifica o registrador destino

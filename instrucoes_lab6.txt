@@ -1,0 +1,36 @@
+Instruções JUMP -> Salto absoluto (incondicional)
+Instruções BRANCH -> Salto relativo (condicional)
+
+FLAGS:
+Negative, Overflow
+
+A.Carrega R3 (o registrador 3) com o valor 0
+LD R3, 0
+
+B. Carrega R4 com 0
+LD R4, 0
+
+C. Soma   R3  com R4 e guarda em R4
+MOV A, R3
+ADD A, R4
+MOV R4, A
+
+D. Soma 1 em R3
+MOV A, R3
+ADD  A, 1
+MOV R3, A
+
+E. Se R3 < 30 salta para a instrução do passo C *
+CMP 30, R3 --> 30 - R3 = ?
+BGT -2 --> Branch if 30 is greater then R3
+
+F. Copia valor de R4 para R5
+F. MOV R5, R4
+
+* Requisito obrigatório: o salto para trás deve ser relativo
+
+-- FALTA:
+- Calcular o delta do salto relativo
+- Arrumar enables das flags na uc
+- Codificar a ROM
+- Testes
