@@ -25,7 +25,7 @@ begin
 
     sim_time_proc: process
     begin
-        wait for 10 us; -- tempo total da simulação (10 períodos)
+        wait for 110 us; -- tempo total da simulação (10 períodos)
         finished <= '1';
         wait;
     end process sim_time_proc;

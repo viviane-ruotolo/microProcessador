@@ -1,0 +1,66 @@
+Instruções JUMP -> Salto absoluto (incondicional)
+Instruções BRANCH -> Salto relativo (condicional)
+
+
+A.Carrega R3 (o registrador 3) com o valor 0
+LD R3, 0  
+
+B. Carrega R4 com 0
+LD R4, 0 
+
+B.2.  Carrega R2 com 1
+LD R2, 1 
+
+C. Soma   R3  com R4 e guarda em R4
+3 - MOV A, R3 
+ADD A, R4 
+MOV R4, A 
+
+D. Soma 1 em R3
+MOV A, R3 
+ADD  A, R2 
+MOV R3, A 
+
+E. Se R3 < 30 salta para a instrução do passo C *
+LD A, 30 
+CMP A, R3 --> 30 - R3 => A - R3  
+11 - BGT -8 --> Branch if 30 is greater then R3 (MOSTRAR QUAL O PC ATUAL)
+                     1011 //11
+                  0000011 //3
+
+F. Copia valor de R4 para R5
+F. MOV R5, R4 //110_0101_0100_00000
+
+* Requisito obrigatório: o salto para trás deve ser relativo
+
+RESULTADOS EM R4:
+0 - 0
+1 - 1
+3 - 3
+6 - 6
+10 - A
+15 - F
+21 - 15
+28 - 1C
+36 - 24
+45 - 2D
+55 - 37
+66 - 42
+78 - 4E
+91 - 5B
+105 - 69
+120 - 78
+136 - 88
+153 - 99
+171 - AB
+190 - BE
+210 - D2
+231 - E7
+253 - FD
+276  - 114
+300 - 12C
+325 - 145
+351 - 15F
+378 - 17A
+406  - 196
+435 - 1B3
