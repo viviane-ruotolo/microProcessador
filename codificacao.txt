@@ -1,20 +1,36 @@
+Flags: carry, overflow, zero, negative
+
 MSB b15                b0 LSB
-      |                |
-B:    001 eeeeeee xxxxxx
-J:    111 eeeeeee xxxxxx
+      |           fff   |
+B:    001 eeeeeee 000 xxx
+BEQ:  001 ttttttt 001 xxx //Igual 
+BGE:  001 ttttttt 010 xxx //Maior ou igual
+BGT:  001 ttttttt 011 xxx //Maior que 
+BLT:  001 ttttttt 100 xxx //Menor que 
+BNE:  001 ttttttt 101 xxx //Não é igual
+CMP:  111 aaaa rrrr xxxxx 
 ADD:  010 dddd ssss xxxxx
 SUB:  100 dddd ssss xxxxx
 MOV:  110 dddd ssss xxxxx
 SUBI: 011 ssss ccccccccc
 LD:   101 ssss ccccccccc
 NOP:  000 xxxxxxxxxxxxx
+
 ...
 onde
 dddd  identifica o registrador destino
 ssss  identifica o registrador fonte
 ccccccccc identifica a constante de 9 bits em complemento de 2
 eeeeeee identifica o endereço absoluto do salto incondicional
+ttttttt identifica o delta (theta) do endereço relativo para o salto condicional
 xxxx é irrelevante
-
+fff identifica a condicional do salto(function)
 ... 
+
 Quando dddd ou ssss = "1000": representa o acumulador
+...
+
+CMP é sempre entrada1 - entrada0, ou seja, acumulador - registrador na ULA:
+CMP A, R --> A - R
+aaaa = acumulador 
+rrrr = registrador

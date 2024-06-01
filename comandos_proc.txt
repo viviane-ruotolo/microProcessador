@@ -20,6 +20,9 @@ ghdl -e registrador
 ghdl -a registrador_tb.vhd
 ghdl -e registrador_tb
 
+ghdl -a registrador_std_logic.vhd
+ghdl -e registrador_std_logic
+
 ghdl -a banco_regs.vhd
 ghdl -e banco_regs
 
@@ -41,6 +44,9 @@ ghdl -e program_counter_tb
 
 ghdl -a incrementa_pc.vhd
 ghdl -e incrementa_pc
+
+ghdl -a calcula_salto_relativo.vhd
+ghdl -e calcula_salto_relativo
 
 ghdl -a unidade_controle.vhd
 ghdl -e unidade_controle

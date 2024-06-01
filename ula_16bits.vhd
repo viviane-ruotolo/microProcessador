@@ -10,7 +10,8 @@ entity ula_16bits is
         resultado: out unsigned(15 downto 0);
         carry: out std_logic;
         overflow: out std_logic;
-        zero: out std_logic
+        zero: out std_logic;
+        negative: out std_logic
     );
 end entity;
 
@@ -29,7 +30,7 @@ architecture  a_ula_16bits of ula_16bits is
 
     signal carry_soma, carry_sub, overflow_soma, overflow_sub, neg_soma, neg_sub: std_logic;
     signal entrada0_17, entrada1_17, sub_17, soma_17: unsigned(16 downto 0);
-    signal op_and, op_or: unsigned(15 downto 0); -- Resultado de cada operaçao
+    signal op_and, op_or, resultado_s: unsigned(15 downto 0); -- Resultado de cada operaçao
     begin
     
     entrada0_17 <= '0' & entrada0;
@@ -59,10 +60,14 @@ architecture  a_ula_16bits of ula_16bits is
                 overflow_sub when selec_op = "01" else
                 '0';
 
-    zero <= '1' when (sub_17(15 downto 0) = "0000000000000000" and selec_op = "01") else
+    zero <= '1' when resultado_s = "0000000000000000" else
             '0';
 
-    stage1: mux_4x1 port map(sel_op => selec_op, op0 => soma_17(15 downto 0), op1 => sub_17(15 downto 0), op2 => op_and, op3 => op_or, saida => resultado);
+    negative <= resultado_s(15);
+    
+    stage1: mux_4x1 port map(sel_op => selec_op, op0 => soma_17(15 downto 0), op1 => sub_17(15 downto 0), op2 => op_and, op3 => op_or, saida => resultado_s);
+
+    resultado <= resultado_s;
 end architecture;
 
     
