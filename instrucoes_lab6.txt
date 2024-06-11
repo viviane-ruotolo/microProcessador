@@ -13,17 +13,17 @@ LD R2, 1
 
 C. Soma   R3  com R4 e guarda em R4
 3 - MOV A, R3 
-ADD A, R4 
+4 - ADD A, R4 
 MOV R4, A 
 
 D. Soma 1 em R3
 MOV A, R3 
-ADD  A, R2 
+7 - ADD  A, R2 
 MOV R3, A 
 
 E. Se R3 < 30 salta para a instrução do passo C *
 LD A, 30 
-CMP A, R3 --> 30 - R3 => A - R3  
+10 - CMP A, R3 --> 30 - R3 => A - R3  
 11 - BGT -8 --> Branch if 30 is greater then R3 (MOSTRAR QUAL O PC ATUAL)
                      1011 //11
                   0000011 //3
