@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Sat Jun 01 00:51:46 2024
+[*] Fri Jun 07 18:41:47 2024
 [*]
 [dumpfile] "E:\Documents\2-Projects\microProcessador\processador_tb.ghw"
-[dumpfile_mtime] "Sat Jun 01 00:01:58 2024"
+[dumpfile_mtime] "Fri Jun 07 17:58:09 2024"
 [dumpfile_size] 107602
 [savefile] "E:\Documents\2-Projects\microProcessador\sinais_condicionais.gtkw"
-[timestart] 109095000000
-[size] 961 705
-[pos] 271 -90
-*-28.708931 1849000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 0
+[size] 1920 1017
+[pos] -35 -35
+*-28.708931 10792000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.processador_tb.
 [treeopen] top.processador_tb.uut.
@@ -17,7 +17,7 @@
 [sst_width] 297
 [signals_width] 158
 [sst_expanded] 1
-[sst_vpaned_height] 402
+[sst_vpaned_height] 633
 @28
 top.processador_tb.uut.clock
 top.processador_tb.uut.reset
@@ -66,8 +66,14 @@ top.processador_tb.regs_out[0]
 #{top.processador_tb.uut.banco_r.result1[15:0]} top.processador_tb.uut.banco_r.result1[15] top.processador_tb.uut.banco_r.result1[14] top.processador_tb.uut.banco_r.result1[13] top.processador_tb.uut.banco_r.result1[12] top.processador_tb.uut.banco_r.result1[11] top.processador_tb.uut.banco_r.result1[10] top.processador_tb.uut.banco_r.result1[9] top.processador_tb.uut.banco_r.result1[8] top.processador_tb.uut.banco_r.result1[7] top.processador_tb.uut.banco_r.result1[6] top.processador_tb.uut.banco_r.result1[5] top.processador_tb.uut.banco_r.result1[4] top.processador_tb.uut.banco_r.result1[3] top.processador_tb.uut.banco_r.result1[2] top.processador_tb.uut.banco_r.result1[1] top.processador_tb.uut.banco_r.result1[0]
 #{top.processador_tb.uut.banco_r.result2[15:0]} top.processador_tb.uut.banco_r.result2[15] top.processador_tb.uut.banco_r.result2[14] top.processador_tb.uut.banco_r.result2[13] top.processador_tb.uut.banco_r.result2[12] top.processador_tb.uut.banco_r.result2[11] top.processador_tb.uut.banco_r.result2[10] top.processador_tb.uut.banco_r.result2[9] top.processador_tb.uut.banco_r.result2[8] top.processador_tb.uut.banco_r.result2[7] top.processador_tb.uut.banco_r.result2[6] top.processador_tb.uut.banco_r.result2[5] top.processador_tb.uut.banco_r.result2[4] top.processador_tb.uut.banco_r.result2[3] top.processador_tb.uut.banco_r.result2[2] top.processador_tb.uut.banco_r.result2[1] top.processador_tb.uut.banco_r.result2[0]
 #{top.processador_tb.uut.banco_r.result3[15:0]} top.processador_tb.uut.banco_r.result3[15] top.processador_tb.uut.banco_r.result3[14] top.processador_tb.uut.banco_r.result3[13] top.processador_tb.uut.banco_r.result3[12] top.processador_tb.uut.banco_r.result3[11] top.processador_tb.uut.banco_r.result3[10] top.processador_tb.uut.banco_r.result3[9] top.processador_tb.uut.banco_r.result3[8] top.processador_tb.uut.banco_r.result3[7] top.processador_tb.uut.banco_r.result3[6] top.processador_tb.uut.banco_r.result3[5] top.processador_tb.uut.banco_r.result3[4] top.processador_tb.uut.banco_r.result3[3] top.processador_tb.uut.banco_r.result3[2] top.processador_tb.uut.banco_r.result3[1] top.processador_tb.uut.banco_r.result3[0]
-@23
 #{top.processador_tb.uut.banco_r.result4[15:0]} top.processador_tb.uut.banco_r.result4[15] top.processador_tb.uut.banco_r.result4[14] top.processador_tb.uut.banco_r.result4[13] top.processador_tb.uut.banco_r.result4[12] top.processador_tb.uut.banco_r.result4[11] top.processador_tb.uut.banco_r.result4[10] top.processador_tb.uut.banco_r.result4[9] top.processador_tb.uut.banco_r.result4[8] top.processador_tb.uut.banco_r.result4[7] top.processador_tb.uut.banco_r.result4[6] top.processador_tb.uut.banco_r.result4[5] top.processador_tb.uut.banco_r.result4[4] top.processador_tb.uut.banco_r.result4[3] top.processador_tb.uut.banco_r.result4[2] top.processador_tb.uut.banco_r.result4[1] top.processador_tb.uut.banco_r.result4[0]
+@28
+top.processador_tb.uut.negative_out
+top.processador_tb.uut.zero_out
+top.processador_tb.uut.overflow_out
+top.processador_tb.uut.carry_out
+@29
+top.processador_tb.uut.write_en_flags_s
 @22
 #{top.processador_tb.uut.banco_r.result5[15:0]} top.processador_tb.uut.banco_r.result5[15] top.processador_tb.uut.banco_r.result5[14] top.processador_tb.uut.banco_r.result5[13] top.processador_tb.uut.banco_r.result5[12] top.processador_tb.uut.banco_r.result5[11] top.processador_tb.uut.banco_r.result5[10] top.processador_tb.uut.banco_r.result5[9] top.processador_tb.uut.banco_r.result5[8] top.processador_tb.uut.banco_r.result5[7] top.processador_tb.uut.banco_r.result5[6] top.processador_tb.uut.banco_r.result5[5] top.processador_tb.uut.banco_r.result5[4] top.processador_tb.uut.banco_r.result5[3] top.processador_tb.uut.banco_r.result5[2] top.processador_tb.uut.banco_r.result5[1] top.processador_tb.uut.banco_r.result5[0]
 #{top.processador_tb.uut.banco_r.result6[15:0]} top.processador_tb.uut.banco_r.result6[15] top.processador_tb.uut.banco_r.result6[14] top.processador_tb.uut.banco_r.result6[13] top.processador_tb.uut.banco_r.result6[12] top.processador_tb.uut.banco_r.result6[11] top.processador_tb.uut.banco_r.result6[10] top.processador_tb.uut.banco_r.result6[9] top.processador_tb.uut.banco_r.result6[8] top.processador_tb.uut.banco_r.result6[7] top.processador_tb.uut.banco_r.result6[6] top.processador_tb.uut.banco_r.result6[5] top.processador_tb.uut.banco_r.result6[4] top.processador_tb.uut.banco_r.result6[3] top.processador_tb.uut.banco_r.result6[2] top.processador_tb.uut.banco_r.result6[1] top.processador_tb.uut.banco_r.result6[0]

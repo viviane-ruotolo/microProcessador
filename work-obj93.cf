@@ -1,64 +1,64 @@
 v 4
-file . "processador_tb.vhd" "54a47e9ce2768e0569363c03e15d2ec807572ab4" "20240601005200.496":
+file . "processador_tb.vhd" "54a47e9ce2768e0569363c03e15d2ec807572ab4" "20240607184305.893":
   entity processador_tb at 1( 0) + 0 on 51;
   architecture a_processador_tb of processador_tb at 8( 109) + 0 on 52;
-file . "unidade_controle.vhd" "8b7b9387ee431343428b345545c3e8bdf78d6ed2" "20240601005200.287":
+file . "unidade_controle.vhd" "4371a34c4f97b1fac892046cd34e878ed120278c" "20240607184305.709":
   entity unidade_controle at 1( 0) + 0 on 47;
   architecture a_unidade_controle of unidade_controle at 23( 797) + 0 on 48;
-file . "incrementa_pc.vhd" "6d0f221d407da023f5204ca2d303003aeb83037b" "20240601005200.124":
+file . "incrementa_pc.vhd" "6d0f221d407da023f5204ca2d303003aeb83037b" "20240607184305.552":
   entity incrementa_pc at 1( 0) + 0 on 43;
   architecture a_incrementa_pc of incrementa_pc at 13( 261) + 0 on 44;
-file . "program_counter.vhd" "6a6fe9a8fe414b5b9864d1556ae49218135f37b0" "20240601005159.963":
+file . "program_counter.vhd" "6a6fe9a8fe414b5b9864d1556ae49218135f37b0" "20240607184305.411":
   entity program_counter at 1( 0) + 0 on 39;
   architecture a_program_counter of program_counter at 15( 319) + 0 on 40;
-file . "rom.vhd" "33f114c1557e1d38496c032f413b90acb18bd13a" "20240601005159.802":
+file . "rom.vhd" "33f114c1557e1d38496c032f413b90acb18bd13a" "20240607184305.262":
   entity rom at 1( 0) + 0 on 35;
   architecture a_rom of rom at 13( 238) + 0 on 36;
-file . "ula_16bits.vhd" "afdd8ec7ca37e3e4ee4df16554a760567f1618f5" "20240601005159.643":
+file . "ula_16bits.vhd" "afdd8ec7ca37e3e4ee4df16554a760567f1618f5" "20240607184305.117":
   entity ula_16bits at 1( 0) + 0 on 31;
   architecture a_ula_16bits of ula_16bits at 18( 439) + 0 on 32;
-file . "registrador_std_logic.vhd" "ca995f435305ecaf5eb039c6ba12d01f3ad5bba3" "20240601005159.478":
+file . "registrador_std_logic.vhd" "ca995f435305ecaf5eb039c6ba12d01f3ad5bba3" "20240607184304.970":
   entity registrador_std_logic at 1( 0) + 0 on 27;
   architecture a_registrador_std_logic of registrador_std_logic at 15( 303) + 0 on 28;
-file . "registrador.vhd" "b0016665e73721dc1cbbb2d9ed71c75abcc10b41" "20240601005159.317":
+file . "registrador.vhd" "b0016665e73721dc1cbbb2d9ed71c75abcc10b41" "20240607184304.816":
   entity registrador at 1( 0) + 0 on 23;
   architecture a_registrador of registrador at 15( 317) + 0 on 24;
-file . "mux_8x1.vhd" "04d402d5c03544ec28f847970cdca8d06b3dda00" "20240601005159.161":
+file . "mux_8x1.vhd" "04d402d5c03544ec28f847970cdca8d06b3dda00" "20240607184304.673":
   entity mux_8x1 at 1( 0) + 0 on 19;
   architecture a_mux_8x1 of mux_8x1 at 20( 537) + 0 on 20;
-file . "mux_4x1.vhd" "294a5a456ed742d259132dbe13550f444100384b" "20240601005159.015":
+file . "mux_4x1.vhd" "294a5a456ed742d259132dbe13550f444100384b" "20240607184304.529":
   entity mux_4x1 at 1( 0) + 0 on 15;
   architecture a_mux_4x1 of mux_4x1 at 16( 377) + 0 on 16;
-file . "mux_2x1.vhd" "b4ef2f30dcf1cb61a501f1145b76f95de952af67" "20240601005158.828":
+file . "mux_2x1.vhd" "b4ef2f30dcf1cb61a501f1145b76f95de952af67" "20240607184304.379":
   entity mux_2x1 at 1( 0) + 0 on 11;
   architecture a_mux_2x1 of mux_2x1 at 14( 286) + 0 on 12;
-file . "mux_2x1_tb.vhd" "9505c1c524cdec660dc5058dfbb25fcd521587d1" "20240601005158.939":
+file . "mux_2x1_tb.vhd" "9505c1c524cdec660dc5058dfbb25fcd521587d1" "20240607184304.458":
   entity mux_2x1_tb at 1( 0) + 0 on 13;
   architecture a_mux_2x1_tb of mux_2x1_tb at 8( 104) + 0 on 14;
-file . "mux_4x1_tb.vhd" "ff6ee5b6428262cfdd4ac7df1a93733133a66eb5" "20240601005159.087":
+file . "mux_4x1_tb.vhd" "ff6ee5b6428262cfdd4ac7df1a93733133a66eb5" "20240607184304.599":
   entity mux_4x1_tb at 1( 0) + 0 on 17;
   architecture a_mux_4x1_tb of mux_4x1_tb at 8( 104) + 0 on 18;
-file . "mux_8x1_tb.vhd" "a245d3de9a9409f58afeb1948dab810e6b5d4169" "20240601005159.236":
+file . "mux_8x1_tb.vhd" "a245d3de9a9409f58afeb1948dab810e6b5d4169" "20240607184304.743":
   entity mux_8x1_tb at 1( 0) + 0 on 21;
   architecture a_mux_8x1_tb of mux_8x1_tb at 8( 104) + 0 on 22;
-file . "registrador_tb.vhd" "2e26079a6e4a2c1f243a1aa04d23b0dfd7d75e22" "20240601005159.398":
+file . "registrador_tb.vhd" "2e26079a6e4a2c1f243a1aa04d23b0dfd7d75e22" "20240607184304.897":
   entity registrador_tb at 1( 0) + 0 on 25;
   architecture a_registrador_tb of registrador_tb at 8( 115) + 0 on 26;
-file . "banco_regs.vhd" "c0adeecadc94139e47ea47b54397d521e60be332" "20240601005159.556":
+file . "banco_regs.vhd" "c0adeecadc94139e47ea47b54397d521e60be332" "20240607184305.041":
   entity banco_regs at 1( 0) + 0 on 29;
   architecture a_banco_regs of banco_regs at 17( 417) + 0 on 30;
-file . "maq_estados.vhd" "760afef833c3ceda4abe668f91d9608006b12eb8" "20240601005159.721":
+file . "maq_estados.vhd" "760afef833c3ceda4abe668f91d9608006b12eb8" "20240607184305.191":
   entity maq_estados at 1( 0) + 0 on 33;
   architecture a_maq_estados of maq_estados at 12( 211) + 0 on 34;
-file . "rom_tb.vhd" "6e48ebd8e931e1521489245bf1bccd808c4b6c7d" "20240601005159.882":
+file . "rom_tb.vhd" "6e48ebd8e931e1521489245bf1bccd808c4b6c7d" "20240607184305.336":
   entity rom_tb at 1( 0) + 0 on 37;
   architecture a_rom_tb of rom_tb at 8( 104) + 0 on 38;
-file . "program_counter_tb.vhd" "e1a4402d0c355a43d35a72a2d581b4f04147bbaa" "20240601005200.041":
+file . "program_counter_tb.vhd" "e1a4402d0c355a43d35a72a2d581b4f04147bbaa" "20240607184305.481":
   entity program_counter_tb at 1( 0) + 0 on 41;
   architecture a_program_counter_tb of program_counter_tb at 8( 116) + 0 on 42;
-file . "calcula_salto_relativo.vhd" "93abd3f37ee5099901b86625323e5ba2fa200201" "20240601005200.204":
+file . "calcula_salto_relativo.vhd" "93abd3f37ee5099901b86625323e5ba2fa200201" "20240607184305.627":
   entity calcula_salto_relativo at 1( 0) + 0 on 45;
   architecture a_calcula_salto_relativo of calcula_salto_relativo at 14( 311) + 0 on 46;
-file . "processador.vhd" "f56cdd0e06bb4e2994e4a79d53a2705221103f4b" "20240601005200.383":
+file . "processador.vhd" "f56cdd0e06bb4e2994e4a79d53a2705221103f4b" "20240607184305.793":
   entity processador at 1( 0) + 0 on 49;
   architecture a_processador of processador at 15( 364) + 0 on 50;

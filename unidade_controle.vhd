@@ -122,8 +122,9 @@ begin
     write_en_reg_op <= '1' when estado_s = "01" else
                     '0';
     
-    -- Observar momento que altera as flags 
-    write_en_flags <= '1' when estado_s = "10" else
+    -- Altera as flags SE: 
+    -- Se tiver no estado 10 e for operaçao da ula: CMP, ADD, SUB, SUBI 
+    write_en_flags <= '1' when estado_s = "10" and (opcode(2 downto 0) = "111" or opcode(2 downto 0) =  "010" or opcode(2 downto 0) = "100" or opcode(2 downto 0) = "011")  else
                       '0'; 
     
     -- Condição: tem que ser testada no estado 01, para fazer o salto no estado 10

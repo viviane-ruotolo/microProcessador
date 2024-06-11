@@ -15,6 +15,8 @@ MOV:  110 dddd ssss xxxxx
 SUBI: 011 ssss ccccccccc
 LD:   101 ssss ccccccccc
 NOP:  000 xxxxxxxxxxxxx
+SW: 
+LW:
 
 ...
 onde
@@ -34,3 +36,7 @@ CMP é sempre entrada1 - entrada0, ou seja, acumulador - registrador na ULA:
 CMP A, R --> A - R
 aaaa = acumulador 
 rrrr = registrador
+
+
+sw   s3,(t1)       #Escreve no endereço (7 bits) da ram guardado em t1, o dado (16 bits) em s3
+lw   t2,(t1)      #Guarda no registrador t2, o dado (16 bits) lido no endereço (7 bits) guardado em t1  
