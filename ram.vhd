@@ -14,7 +14,14 @@ end entity;
 
 architecture a_ram of ram is
    type mem is array (0 to 127) of unsigned(15 downto 0);
-   signal conteudo_ram : mem;
+   signal conteudo_ram : mem:= (
+      -- caso endereco => conteudo
+      3  => B"0101_0100_00010100", --
+      4  => B"1000_0001_0011_0000",
+      6  => B"0110_1000_0001_0000",
+      -- abaixo: casos omissos => (zero em todos os bits)
+      others => (others=>'0')
+  );
 begin
    process(clk,wr_en)
    begin

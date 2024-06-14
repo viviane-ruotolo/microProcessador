@@ -32,6 +32,9 @@ ghdl -e ula_16bits
 ghdl -a maq_estados.vhd
 ghdl -e maq_estados
 
+ghdl -a ram.vhd
+ghdl -e ram
+
 ghdl -a rom.vhd
 ghdl -e rom
 ghdl -a rom_tb.vhd

@@ -1,28 +1,32 @@
 Flags: carry, overflow, zero, negative
 
+//Opcode 15 - 12
+//Só mudou o tamanho do opcode (3 downto 0)
+
 MSB b15                b0 LSB
-      |           fff   |
-B:    001 eeeeeee 000 xxx
-BEQ:  001 ttttttt 001 xxx //Igual 
-BGE:  001 ttttttt 010 xxx //Maior ou igual
-BGT:  001 ttttttt 011 xxx //Maior que 
-BLT:  001 ttttttt 100 xxx //Menor que 
-BNE:  001 ttttttt 101 xxx //Não é igual
-CMP:  111 aaaa rrrr xxxxx 
-ADD:  010 dddd ssss xxxxx
-SUB:  100 dddd ssss xxxxx
-MOV:  110 dddd ssss xxxxx
-SUBI: 011 ssss ccccccccc
-LD:   101 ssss ccccccccc
-NOP:  000 xxxxxxxxxxxxx
-SW: 
-LW:
+      |            fff  |
+B:    0001 eeeeeee 000 xx
+BEQ:  0001 ttttttt 001 xx //Igual 
+BGE:  0001 ttttttt 010 xx //Maior ou igual
+BGT:  0001 ttttttt 011 xx //Maior que 
+BLT:  0001 ttttttt 100 xx //Menor que 
+BNE:  0001 ttttttt 101 xx //Não é igual
+CMP:  0111 aaaa rrrr xxxx 
+ADD:  0010 dddd ssss xxxx
+SUB:  0100 dddd ssss xxxx
+MOV:  0110 dddd ssss xxxx
+SUBI: 0011 ssss cccccccc //Diminuiu o valor da constante também  (8)
+LD:   0101 ssss cccccccc //Diminuiu o valor da constante também  (8)
+NOP:  0000 xxxxxxxxxxxx
+SW:   1000 ssss pppp xxxx
+LW:   1001 dddd pppp xxxx //Pode escrever no banco de registradores ou acumulador
 
 ...
 onde
 dddd  identifica o registrador destino
 ssss  identifica o registrador fonte
-ccccccccc identifica a constante de 9 bits em complemento de 2
+pppp  identifica o ponteiro para o endereço guardado nesse registrador
+cccccccc identifica a constante de 8 bits em complemento de 2
 eeeeeee identifica o endereço absoluto do salto incondicional
 ttttttt identifica o delta (theta) do endereço relativo para o salto condicional
 xxxx é irrelevante
@@ -38,5 +42,21 @@ aaaa = acumulador
 rrrr = registrador
 
 
-sw   s3,(t1)       #Escreve no endereço (7 bits) da ram guardado em t1, o dado (16 bits) em s3
+sw   s3,(t1)      #Escreve no endereço (7 bits) da ram guardado em t1, o dado (16 bits) em s3
 lw   t2,(t1)      #Guarda no registrador t2, o dado (16 bits) lido no endereço (7 bits) guardado em t1  
+
+sw: Salva o dado s3 no endereço apontado por t1
+      - ler o reg t1 e salva no reg de end da ram 
+      - ler s3 (dado_in) e escreve na ram
+
+lw: Lê o dado gravado na ram no endereço guardado em t1 e guarda no registrador t2
+      - ler o reg t1 (endereço) e salva no reg de end da ram
+      - Lê ram e Salva dado_out da ram em t2 
+
+* Fazer programa na rom para teste
+* Implementar instruction register e quebrar a instrução ali dentro 
+
+ram:
+- dado in: vem do reg
+- endereço: vem do reg de eendereço da ram ou banco reg
+- dado lido: vai para o mux do banco regs
