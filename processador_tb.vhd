@@ -12,7 +12,8 @@ architecture a_processador_tb of processador_tb is
         reset: in std_logic;
         regs_out: out unsigned(15 downto 0);
         acu_out: out unsigned(15 downto 0);
-        ula_out: out unsigned(15 downto 0)
+        ula_out: out unsigned(15 downto 0);
+        finished: out std_logic
     );
     end component;
 
@@ -21,14 +22,8 @@ architecture a_processador_tb of processador_tb is
     signal regs_out, acu_out, ula_out: unsigned(15 downto 0);
 begin 
 
-    uut: processador port map(clock => clock_s, reset => reset_s, regs_out => regs_out, acu_out => acu_out, ula_out => ula_out);
-
-    sim_time_proc: process
-    begin
-        wait for 110 us; -- tempo total da simulação (10 períodos)
-        finished <= '1';
-        wait;
-    end process sim_time_proc;
+    -- finished: out do processador que vem do registrador de instrucao
+    uut: processador port map(clock => clock_s, reset => reset_s, regs_out => regs_out, acu_out => acu_out, ula_out => ula_out, finished => finished);
 
     clk_proc: process
     begin

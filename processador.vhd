@@ -8,8 +8,9 @@ entity processador is
         reset: in std_logic;
         regs_out: out unsigned(15 downto 0);
         acu_out: out unsigned(15 downto 0);
-        ula_out: out unsigned(15 downto 0) -- pegar estado e pc tbm e instrucao
-    );
+        ula_out: out unsigned(15 downto 0); -- pegar estado e pc tbm e instrucao
+        finished: out std_logic
+        );
 end entity;
 
 architecture a_processador of processador is
@@ -23,12 +24,13 @@ architecture a_processador of processador is
         negative: in std_logic;
         destino, source: out unsigned(3 downto 0);
         op_ula: out unsigned(1 downto 0);
-        cte: out unsigned(7 downto 0);
+        cte: out unsigned(11 downto 0);
         write_en_acu: out std_logic;
         write_en_bregs: out std_logic;
         write_en_flags: out std_logic;
         wr_en_reg_end_ram: out std_logic;
         wr_en_ram: out std_logic;
+        finished: out std_logic;
         sel_data_ram_para_regs: out std_logic;
         sel_regs_ou_cte_para_ula: out std_logic; -- seleciona no mux o dado para a ULA (cte ou registrador)
         sel_data_cte_ou_regs_acu_ula: out unsigned(1 downto 0) -- seleciona se vai escrever um dado da constante ou de registrador/acumulador
@@ -37,9 +39,9 @@ architecture a_processador of processador is
 
     component banco_regs is
         port(
-            read_regs_1: in unsigned(2 downto 0);
+            read_regs_1: in unsigned(3 downto 0);
             write_data: in unsigned(15 downto 0);
-            write_regs: in unsigned(2 downto 0);
+            write_regs: in unsigned(3 downto 0);
             write_enable: in std_logic;
             clock: in std_logic;
             reset: in std_logic;
@@ -103,7 +105,7 @@ architecture a_processador of processador is
     signal write_acu, cte_16bits, dado_in_ram: unsigned(15 downto 0) := "0000000000000000"; 
     signal destino, source: unsigned(3 downto 0);
     signal op_ula: unsigned(1 downto 0);
-    signal cte: unsigned(7 downto 0);
+    signal cte: unsigned(11 downto 0);
     signal write_en_acu, carry_in, overflow_in, carry_out, overflow_out, zero_in, zero_out: std_logic;
     signal write_en_bregs, negative_out, negative_in, write_en_flags_s, wr_en_ram, wr_en_reg_end_ram: std_logic;
     signal sel_regs_ou_cte_para_ula, sel_data_ram_para_regs, sel_reg_end_ram: std_logic; -- seleciona no mux o dado para a ULA (cte ou registrador)
@@ -111,9 +113,9 @@ architecture a_processador of processador is
 
 begin
     
-    un_controle: unidade_controle port map (clock => clock, reset => reset, overflow => overflow_out, zero => zero_out, negative => negative_out, destino => destino, source => source, op_ula => op_ula, cte => cte, write_en_acu => write_en_acu, write_en_bregs => write_en_bregs, write_en_flags => write_en_flags_s, wr_en_reg_end_ram => wr_en_reg_end_ram, wr_en_ram => wr_en_ram, sel_data_ram_para_regs => sel_data_ram_para_regs, sel_regs_ou_cte_para_ula => sel_regs_ou_cte_para_ula, sel_data_cte_ou_regs_acu_ula => sel_data_cte_ou_regs_acu_ula);
+    un_controle: unidade_controle port map (clock => clock, reset => reset, overflow => overflow_out, zero => zero_out, negative => negative_out, destino => destino, source => source, op_ula => op_ula, cte => cte, write_en_acu => write_en_acu, write_en_bregs => write_en_bregs, write_en_flags => write_en_flags_s, wr_en_reg_end_ram => wr_en_reg_end_ram, wr_en_ram => wr_en_ram, finished => finished, sel_data_ram_para_regs => sel_data_ram_para_regs, sel_regs_ou_cte_para_ula => sel_regs_ou_cte_para_ula, sel_data_cte_ou_regs_acu_ula => sel_data_cte_ou_regs_acu_ula);
 
-    banco_r: banco_regs port map (read_regs_1 => source(2 downto 0), write_data => write_regs_data, write_regs => destino(2 downto 0), write_enable => write_en_bregs, clock => clock, reset => reset, read_regs_out => read_regs_out);
+    banco_r: banco_regs port map (read_regs_1 => source, write_data => write_regs_data, write_regs => destino, write_enable => write_en_bregs, clock => clock, reset => reset, read_regs_out => read_regs_out);
  
     mux_regs_cte: mux_2x1 port map (sel_op => sel_regs_ou_cte_para_ula, op0 => cte_16bits, op1 => read_regs_out, saida => data_ula1);
 
@@ -133,7 +135,7 @@ begin
     
     ram_comp: ram port map(clk => clock, endereco => reg_end_ram_out(6 downto 0), wr_en => wr_en_ram, dado_in => dado_in_ram, dado_out => data_ram_out);
     
-    cte_16bits <= "00000000" & cte;
+    cte_16bits <= "0000" & cte;
     
     -- seleciona se vai escrever um dado da constante ou de registrador/acumulador
     -- 00 (cte) - 01 (regs) - 10 (ula) - 11 (acu)

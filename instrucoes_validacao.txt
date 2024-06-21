@@ -1,0 +1,146 @@
+Coloque na memória RAM, com um loop em assembly, os números de interesse:
+•no mínimo até o 32;
+* determina o maior valor a ser verificado => low sqrt(32)
+* cria uma lista de 2 até max value
+•coloque o número 1 no endereço 1, o 2 no 2, o 3 no 3... (facilita).
+2. Elimine da lista, com um loop,  todos os múltiplos de 2.
+3. Idem para 3 e 5.
+4. Seria decente seguir o algoritmo completo (“tente” eliminar todos os não primos, como os
+múltiplos de 7, 11 e etc.), então faça isso se der.
+5. Faça um loop para ler a RAM do endereço 2 ao 32.
+6. Ponha um pino extra para visualizar as coisas ou simplesmente jogue o dado lido da RAM
+na saída da ULA, para que possamos acompanhar o resultado.
+
+COMPLICAÇÕES:
+
+* Encontrar um divisor de 1874: 
+    2 e 937
+    //Ir aumentando o crivo aos poucos até 2047 (acho que seria 1024)
+
+* No final do loop: detectar o MSB setado usando AND
+100000000000
+
+
+
+-- R0: 0
+-- R1: 1 -- valor fixo para incremento
+-- R2: 32 ou 5
+-- R3: Contador
+-- R4: Primo/Divisor
+-- R5: Resto/Dividendo (1874 -> 11101010010) -> é decrementado
+-- R6: Resultado da RAM e contador Number
+-- R7: Divisores de 1874
+-- RF: Registrador de endereço ("1111")
+
+0.       LD R1, 1 
+1.       LD R2, 32   
+2.       LD R3, 0 
+
+ESCREVE_RAM
+3.       MOV A, R3 
+4.       SW R3, (A)
+5.       ADD A, R1 
+6.       MOV R3, A
+7.       NOT A
+8.       AND A, R1
+9.       CMP A, R0  
+10.      BNE ESCREVE_RAM 
+
+11.      LD R3, 2 
+12.      LD R2, 5 
+ 
+LOOP_EXCLUI_MULTIPLOS
+13.      SW R4, (R3) 
+14.      MOV A, R4 
+15.      CMP A, R0 
+16.      BNE EH_PRIMO
+
+INCREMENTA_J
+17.     MOV A, R3 
+18.     ADD A, R1
+19.     MOV R3, A
+20.     NOT A 
+21.     AND A, R2
+22.     CMP A, R0
+23.     BNE LOOP_EXCLUI_MULTIPLOS
+
+24.     LD R3, 0
+25.     MOV A, R3
+26.     LD R2, 32
+27.     LD R5, 11101010010 
+
+MOSTRA_RESULTADO
+28.     MOV A, R3 
+29.     LW R6, (R3) 
+30.     ADD A, R1
+31.     MOV R3, A
+32.     MOV R4, R6
+33.     MOV A, R6
+34.     CMP A, R0  
+35.     LD RF, 27 
+36.     BEQ INCREMENTA_DIVISOR
+37.     BNE CALCULA_MODULO
+
+CONTINUA_RESULTADO
+38.     MOV A, R5 
+39.     CMP A, R0 
+40.     BEQ INCREMENTA_DIVISOR
+41.     MOV R7, R4
+
+INCREMENTA_DIVISOR
+42.     MOV A, R3
+43.     NOT A 
+44.     AND A, R2
+45.     CMP A, R0
+46.     BNE MOSTRA_RESULTADO 
+
+47.     END
+
+EXCLUI_MULTIPLO
+48.     SW R0, (A)
+49.     B INCREMENTA_NUMBER
+
+EH_PRIMO 
+50.     MOV A, R4 
+51.     ADD A, R1 
+52.     MOV R6, A
+53.     LD R2, 32
+        
+PROCURA_MULTIPLOS
+54.     MOV R5, R6
+55.     LD RF, 50 
+56.     B CALCULA_MODULO  
+
+CONTINUA_MULTIPLO
+57.     MOV A, R5
+58.     CMP A, R0 
+59.     BEQ EXCLUI_MULTIPLO
+
+INCREMENTA_NUMBER
+60.     MOV A, R6
+61.     ADD A, R1
+62.     MOV R6, A
+63.     NOT A 
+64.     AND A, 32
+65.     CMP A, R0 
+66.     BNE PROCURA_MULTIPLOS
+67.     LD R2, 5
+68.     B INCREMENTA_J
+ 
+CALCULA_MODULO
+69.     MOV A, R5 
+70.     CMP A, R4 
+71.     BLT ENCONTRA_DESTINO
+72.     SUB A, R4 
+73.     MOV R5, A 
+74.     B CALCULA_MODULO
+
+
+ENCONTRA_DESTINO
+75.     LD A, 27
+76.     CMP A, RF
+77.     BEQ CONTINUA_RESULTADO
+78.     B CONTINUA_MULTIPLO
+
+
+0x2, 0x3, 0x5, 0x7, 0xB, 0xD, 0x11, 0x13, 0x17, 0x1D, 0x1F, 0x25, 0x29, 0x2B, 0x2F, 0x35, 0x3B, 0x3D, 0x43, 0x47, 0x49, 0x4F, 0x53, 0x59, 0x61, 0x65, 0x67, 0x6B, 0x6D, 0x71, 0x7F.

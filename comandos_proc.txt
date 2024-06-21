@@ -23,6 +23,9 @@ ghdl -e registrador_tb
 ghdl -a registrador_std_logic.vhd
 ghdl -e registrador_std_logic
 
+ghdl -a registrador_instrucao.vhd
+ghdl -e registrador_instrucao
+
 ghdl -a banco_regs.vhd
 ghdl -e banco_regs
 

@@ -30,16 +30,18 @@ architecture  a_ula_16bits of ula_16bits is
 
     signal carry_soma, carry_sub, overflow_soma, overflow_sub, neg_soma, neg_sub: std_logic;
     signal entrada0_17, entrada1_17, sub_17, soma_17: unsigned(16 downto 0);
-    signal op_and, op_or, resultado_s: unsigned(15 downto 0); -- Resultado de cada operaçao
+    signal op_and, op_not, resultado_s: unsigned(15 downto 0); -- Resultado de cada operaçao
     begin
     
+    -- Entrada 1: acumulador 
+    -- Entrada 0: Registrador
     entrada0_17 <= '0' & entrada0;
     entrada1_17 <= '0' & entrada1;
 
     soma_17 <= entrada0_17 + entrada1_17;
-    sub_17 <= entrada1_17 - entrada0_17;
+    sub_17 <= entrada1_17 - entrada0_17; -- (A - R)
     op_and <= entrada0 and entrada1;
-    op_or <= entrada0 or entrada1;
+    op_not <= not entrada1;
 
     carry_soma <= soma_17(16);
     carry_sub <= sub_17(16);
@@ -65,7 +67,7 @@ architecture  a_ula_16bits of ula_16bits is
 
     negative <= resultado_s(15);
     
-    stage1: mux_4x1 port map(sel_op => selec_op, op0 => soma_17(15 downto 0), op1 => sub_17(15 downto 0), op2 => op_and, op3 => op_or, saida => resultado_s);
+    stage1: mux_4x1 port map(sel_op => selec_op, op0 => soma_17(15 downto 0), op1 => sub_17(15 downto 0), op2 => op_and, op3 => op_not, saida => resultado_s);
 
     resultado <= resultado_s;
 end architecture;

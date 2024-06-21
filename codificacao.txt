@@ -3,24 +3,26 @@ Flags: carry, overflow, zero, negative
 //Opcode 15 - 12
 //Só mudou o tamanho do opcode (3 downto 0)
 
-MSB b15                b0 LSB
-      |            fff  |
-B:    0001 eeeeeee 000 xx
-BEQ:  0001 ttttttt 001 xx //Igual 
-BGE:  0001 ttttttt 010 xx //Maior ou igual
-BGT:  0001 ttttttt 011 xx //Maior que 
-BLT:  0001 ttttttt 100 xx //Menor que 
-BNE:  0001 ttttttt 101 xx //Não é igual
-CMP:  0111 aaaa rrrr xxxx 
-ADD:  0010 dddd ssss xxxx
-SUB:  0100 dddd ssss xxxx
-MOV:  0110 dddd ssss xxxx
-SUBI: 0011 ssss cccccccc //Diminuiu o valor da constante também  (8)
-LD:   0101 ssss cccccccc //Diminuiu o valor da constante também  (8)
-NOP:  0000 xxxxxxxxxxxx
-SW:   1000 ssss pppp xxxx
-LW:   1001 dddd pppp xxxx //Pode escrever no banco de registradores ou acumulador
-
+  MSB b19                 b0 LSB
+      |            fff |
+B:    0001 eeeeeee xxx 000 xxx // endereço de 7 bits
+BEQ:  0001 ttttttt xxx 001 xxx //Igual 
+BGE:  0001 ttttttt xxx 010 xxx //Maior ou igual
+BGT:  0001 ttttttt xxx 011 xxx //Maior que 
+BLT:  0001 ttttttt xxx 100 xxx //Menor que 
+BNE:  0001 ttttttt xxx 101 xxx //Não é igual
+CMP:  0111 aaaa rrrr xxxxxxxx //x de 8 bits 
+ADD:  0010 aaaa ssss xxxxxxxx 
+SUB:  0100 aaaa ssss xxxxxxxx
+MOV:  0110 dddd ssss xxxxxxxx
+SUBI: 0011 ssss cccccccccccc //Constante de 12 bits
+LD:   0101 ssss cccccccccccc //Constante de 12 bits 
+NOP:  0000 xxxxxxxxxxxxxxxx // x de 16 bits
+SW:   1000 ssss pppp xxxxxxxx // x de 8 bits
+LW:   1001 dddd pppp xxxxxxxx 
+AND:  1010 aaaa ssss xxxxxxxx 
+NOT:  1011 aaaa xxxxxxxxxxxx 
+END:  1111 xxxxxxxxxxxxxxxx
 ...
 onde
 dddd  identifica o registrador destino
@@ -31,9 +33,19 @@ eeeeeee identifica o endereço absoluto do salto incondicional
 ttttttt identifica o delta (theta) do endereço relativo para o salto condicional
 xxxx é irrelevante
 fff identifica a condicional do salto(function)
+aaaa representa que só pode ser o acumulador
 ... 
+Quando dddd, pppp ou ssss = "0000": representa o R0
+Quando dddd, pppp ou ssss = "0001": representa o R1
+Quando dddd, pppp ou ssss = "0010": representa o R2
+Quando dddd, pppp ou ssss = "0011": representa o R3 
+Quando dddd, pppp ou ssss = "0100": representa o R4 
+Quando dddd, pppp ou ssss = "0101": representa o R5
+Quando dddd, pppp ou ssss = "0110": representa o R6 
+Quando dddd, pppp ou ssss = "0111": representa o R7 
+Quando dddd, pppp ou ssss = "1111": representa o RF 
+Quando dddd, pppp, aaaa ou ssss = "1000": representa o acumulador (A)
 
-Quando dddd ou ssss = "1000": representa o acumulador
 ...
 
 CMP é sempre entrada1 - entrada0, ou seja, acumulador - registrador na ULA:
